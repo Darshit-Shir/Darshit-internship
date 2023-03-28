@@ -1,0 +1,29 @@
+body{
+    font-family: 'Inter';
+}
+.image {
+    border-radius: 0px 70px;
+}
+.image img {
+    height: 430px;
+    width: auto;
+    border-radius: 0px 70px;
+    transform: translate(8%,8%);
+}
+.t1  {    
+    font-family: 'Poppins';
+}
+.icon{
+    font-family: 'Poppins';
+}
+.card-title {
+    font-family: 'Poppins';
+    font-weight: 500;
+}
+.text1{
+    font-size: 1rem;
+}
+.t2{
+    text-align: justify;
+    margin-right: 20px;
+}

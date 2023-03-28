@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darshit_Shir</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./bootstrap-5.2.3-dist/css/bootstrap.min.css">
+    <script src="./bootstrap-5.2.3-dist/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Main Container -->
+    <section class="container-fluid ">
+        <div class="row">
+            <!-- Side bar -->
+            <div class="col-2 desktop" id="Side_bar">
+
+                <div class="l-navbar mt-5" id="nav-bar">
+                    <nav class="nav d-block">
+                        <div class="text-center">
+                            <a href="#" class="nav_logo text-decoration-none text-center">
+                                <img src="./img/Logo" alt="logo" class="img-fluid">
+                                <span class="nav_logo-name logo">Logohere</span>
+                            </a>
+                        </div>
+                        <div class="nav_list mt-5">
+                            <div>
+                                <ul class="list-unstyled ula">
+                                    <li class="dashboard_padding_option">
+                                        <a href="#" class="nav-link my-2">
+                                            <i class="fas fa-th-large"></i>
+                                            <span class="nav_name dashboard_padding_option_text"> Dashboard</span>
+                                        </a>
+                                    </li>
+                                    <li class="dashboard_padding_option">
+                                        <a href="#" class="nav-link my-2">
+                                            <i class="far fa-calendar-alt"></i>
+                                            <span class="nav_name dashboard_padding_option_text"> Calender</span>
+                                        </a>
+                                    </li>
+                                    <li class="dashboard_padding_option ">
+                                        <a href="#" class="nav-link my-2">
+                                            <i class="fas fa-tasks-alt"></i>
+                                            <span class="nav_name dashboard_padding_option_text"> Project</span>
+                                        </a>
+                                    </li>
+                                    <li class="dashboard_padding_option">
+                                        <a href="#" class="nav-link my-2">
+                                            <i class="fas fa-users"></i>
+                                            <span class="nav_name dashboard_padding_option_text"> Team</span>
+                                        </a>
+                                    </li>
+                                    <li class="dashboard_padding_option">
+                                        <a href="#" class="nav-link my-2">
+                                            <i class="fas fa-cog"></i>
+                                            <span class="nav_name dashboard_padding_option_text"> Setting</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button onclick="toggle()" class="btn d-flex mx-auto mt-5 bg-none btn-rounded">
+                            <img src="./img/toggle_button.png" class="img-fluid" alt="toggle_button">
+                        </button>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-10 mt-3">
+                <div class="row">
+                    <div class="row xx d-flex pe-0">
+                        <!-- row-1 -->
+                        <div class="col-sm-8  ">
+                            <div class="input-group">
+                                <input type="search" class="border-0 form-control rounded-start search-bar" id="myInput"
+                                    placeholder="Search " aria-label="Search" aria-describedby="search-addon" />
+                                <button class="btn search-button-right bg-white p-2" type="button">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-1  p-0">
+                            <button type="button" class="border-0 search-btn py-2">Search</button>
+                        </div>
+                        <div class="col-sm-3 jane  d-flex justify-content-end p-0">
+                            <button class="btn search-button-right p-3" type="button">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                            <div class="jane-cooper d-flex align-items-center mx-3 jane-txt">Jane Cooper</div>
+                            <div><img src="./img/jane cooper.png" alt=""></div>
+                        </div>
+                    </div>
+                    <!-- middle-content -->
+                    <div class="col-lg-9 col-sm-12 col-md-12">
+                        <!-- row-2 -->
+                        <div class="row mt-2">
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                                <div class="d-flex justify-content-between bg-white px-2 py-2">
+                                    <p class="m-0 working-hours-txt">Monthly Working Hours</p>
+                                    <span><img src="./img/big-calender.png" alt=""></span>
+                                </div>
+                                <p class="working-hour-number bg-white px-2 py-2">160</p>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                                <div class="d-flex justify-content-between bg-white px-2 py-2">
+                                    <p class="m-0 working-hours-txt">Weekly Working Hours</p>
+                                    <span><img src="./img/clock.png" alt="">
+                                    </span>
+                                </div>
+                                <p class="working-hour-number bg-white px-2 py-2">40</p>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                                <div class="d-flex justify-content-between bg-white px-2 py-2">
+                                    <p class="m-0 working-hours-txt">Late Days</p>
+                                    <span><img src="./img/running-people.png" alt="">
+                                    </span></span>
+                                </div>
+                                <p class="working-hour-number bg-white px-2 py-2">9</p>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                                <div class="d-flex justify-content-between bg-white px-2 py-2">
+                                    <p class="m-0 working-hours-txt">Leave Without Pay</p>
+                                    <span><img src="./img/emoji.png" alt="">
+                                    </span>
+                                </div>
+                                <p class="working-hour-number bg-white px-2 py-2">2</p>
+                            </div>
+                        </div>
+                        <!-- row-3 -->
+                        <div class="bg-white">
+                            <div class="row mt-2 px-3 py-3">
+                                <div class="col-4">
+                                    <div class="d-flex flex-column justify-content-between border-end">
+                                        <p class="leave-font m-">Leaves Remaining</p>
+                                        <span class="leave-number text-primary">10</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-4">
+                                    <div class="d-flex flex-column justify-content-between border-end">
+                                        <p class="leave-font m-">Leaves Taken</p>
+                                        <span class="leave-number text-warning">06</span>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="d-flex flex-column justify-content-between">
+                                        <p class="leave-font m-">pending to approve</p>
+                                        <span class="leave-number text-danger">01</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- row-4 -->
+                        <div class="row mt-3">
+                            <div class="col-lg-7">
+                                <p class="middle-headings">Employee on leave today</p>
+                                <div class="card border-0 shadow table-responsive">
+                                    <table class="table">
+                                        <thead class="table-2-headings bg-color">
+                                            <tr style="height: 50px;">
+                                                <td><span class="d-inline-block mb-2 ms-3">Name</td></span>
+                                                <td><span class="d-inline-block mb-2">Duration</td></span>
+                                                <td><span class="d-inline-block mb-2">Leave Starts</td></span>
+                                                <td><span class="d-inline-block mb-2">Leave Ends</td></span>
+                                                <td><span class="d-inline-block mb-2">Time</td></span>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-1-data bg-white">
+                                            <tr>
+                                                <td class="pt-3"><span>John Doe</span></td>
+                                                <td class="pt-3">3.00 days</td>
+                                                <td class="pt-3">12/01/2023</td>
+                                                <td class="pt-3">14/01/2023</td>
+                                                <td class="pt-3">Full Day</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">John Doe</td>
+                                                <td>3.00 days</td>
+                                                <td>12/01/2023</td>
+                                                <td>14/01/2023</td>
+                                                <td>Full Day</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">John Doe</td>
+                                                <td>3.00 days</td>
+                                                <td>12/01/2023</td>
+                                                <td>14/01/2023</td>
+                                                <td>Full Day</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">John Doe</td>
+                                                <td>3.00 days</td>
+                                                <td>12/01/2023</td>
+                                                <td>14/01/2023</td>
+                                                <td>Full Day</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">John Doe</td>
+                                                <td>3.00 days</td>
+                                                <td>12/01/2023</td>
+                                                <td>14/01/2023</td>
+                                                <td>Full Day</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">John Doe</td>
+                                                <td>3.00 days</td>
+                                                <td>12/01/2023</td>
+                                                <td>14/01/2023</td>
+                                                <td>Full Day</td>
+                                            </tr>
+                                            <tr class="tbl1-hide d-none">
+                                                <td scope="row">John Doe</td>
+                                                <td>3.00 days</td>
+                                                <td>12/01/2023</td>
+                                                <td>14/01/2023</td>
+                                                <td>Full Day</td>
+                                            </tr>
+                                            <tr class="tbl1-hide d-none">
+                                                <td scope="row">John Doe</td>
+                                                <td>3.00 days</td>
+                                                <td>12/01/2023</td>
+                                                <td>14/01/2023</td>
+                                                <td>Full Day</td>
+                                            </tr>
+                                            <tr class="tbl1-hide d-none">
+                                                <td scope="row">John Doe</td>
+                                                <td>3.00 days</td>
+                                                <td>12/01/2023</td>
+                                                <td>14/01/2023</td>
+                                                <td>Full Day</td>
+                                            </tr>
+                                            <tr class="tbl1-hide d-none">
+                                                <td scope="row">John Doe</td>
+                                                <td>3.00 days</td>
+                                                <td>12/01/2023</td>
+                                                <td>14/01/2023</td>
+                                                <td>Full Day</td>
+                                            </tr>
+                                            <tr class="tbl1-hide d-none">
+                                                <td scope="row">John Doe</td>
+                                                <td>3.00 days</td>
+                                                <td>12/01/2023</td>
+                                                <td>14/01/2023</td>
+                                                <td>Full Day</td>
+                                            </tr>
+                                            <tr class="tbl1-hide d-none">
+                                                <td scope="row">John Doe</td>
+                                                <td>3.00 days</td>
+                                                <td>12/01/2023</td>
+                                                <td>14/01/2023</td>
+                                                <td>Full Day</td>
+                                            </tr>
+                                            <tr class="tbl1-hide d-none">
+                                                <td scope="row">John Doe</td>
+                                                <td>3.00 days</td>
+                                                <td>12/01/2023</td>
+                                                <td>14/01/2023</td>
+                                                <td>Full Day</td>
+                                            </tr>
+                                            <tr class="tbl1-hide d-none">
+                                                <td scope="row">John Doe</td>
+                                                <td>3.00 days</td>
+                                                <td>12/01/2023</td>
+                                                <td>14/01/2023</td>
+                                                <td>Full Day</td>
+                                            </tr>
+                                            <tr class="tbl1-hide d-none">
+                                                <td scope="row">John Doe</td>
+                                                <td>3.00 days</td>
+                                                <td>12/01/2023</td>
+                                                <td>14/01/2023</td>
+                                                <td>Full Day</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <button class="text-primary border-0 bg-white pb-3 text-decoration-underline"
+                                        onclick="toggleTextShow('tbl1','show')" id="tbl1-show">
+                                        Show More
+                                    </button>
+                                    <button class="text-primary border-0 bg-white pb-3 text-decoration-underline d-none"
+                                        onclick="toggleTextShow('tbl1','hide')" id="tbl1-hide">
+                                        Show Less
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="col-xxl-5 col-md-12 col-sm-12">
+                                <!-- <div class="col-xl-5"> -->
+
+                                <span class="table-header">Conversations</span>
+
+                                <div class="bg-white card border-0 shadow mt-3 p-2 pt-1">
+                                    <ul class="nav nav-tabs d-flex flex-nowrap justify-content-around" role="tablist">
+                                        <li class="nav-item">
+                                            <a href="#info" role="tab" data-toggle="tab"
+                                                class="nav-link conversation-card border-0 mb-1"><span
+                                                    class="tab-text">Latest Chats</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#ratings" role="tab" data-toggle="tab"
+                                                class="nav-link conversation-card border-0"><span
+                                                    class="tab-text">Scheduled posts</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link border-0" data-bs-toggle="dropdown" href="#"
+                                                role="button" aria-expanded="false"><img src="./img/More Circle.png"
+                                                    alt=""></a>
+                                            <ul class="dropdown-menu shadow border-0 ps-2 py-3">
+                                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pencil"></i>
+                                                        Edit</a></li>
+                                                <li class="mt-1"><a class="dropdown-item" href="#"><i
+                                                            class="fa-solid fa-trash-can"></i> Delete</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" role="tabpanel" id="info">
+                                            <div class="row px-4 pt-3">
+                                                <div class="col-1 date">Dec&nbsp;28</div>
+                                                <div class="col-1"> <img src="./img/Yatri Patel.png" alt=""> </div>
+                                                <div class="col-8 ms-5">
+                                                    <div class="row name">Yatri Patel</div>
+                                                    <div class="row subtext">The tasks which we submitted yesterday
+                                                        requires
+                                                        design...</div>
+                                                    <div class="d-flex justify-content-between pe-4 mt-1 ">
+                                                        <div><img src="./img/Heart.png" alt="">39</div>
+                                                        <div> <img src="./img/Chat.png" alt="">24</div>
+                                                        <div><img src="./img/Bookmark.png" alt="">102</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row px-4 py-3">
+                                                <div class="col-1 date">Dec&nbsp;28</div>
+                                                <div class="col-1"> <img src="./img/Kinnari Patel.png" alt=""> </div>
+                                                <div class="col-8 ms-5">
+                                                    <div class="row name">Kinnari Patel</div>
+                                                    <div class="row subtext">The tasks which we submitted yesterday
+                                                        requires
+                                                        design...</div>
+                                                    <div class="d-flex justify-content-between pe-4 mt-1 ">
+                                                        <div><img src="./img/Heart.png" alt="">72</div>
+                                                        <div> <img src="./img/Chat.png" alt="">16</div>
+                                                        <div><img src="./img/Bookmark.png" alt="">209</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" role="tabpanel" id="ratings">
+                                            <div class="row px-4 pt-3">
+
+                                                <div class="col-2"> <img src="./img/Yatri Patel.png" alt=""> </div>
+                                                <div class="col-8 ms-4">
+                                                    <div class="row name">Yatri Patel</div>
+                                                    <div class="row subtext">Hey there! I am tab 2. Here is my
+                                                        individual
+                                                        design...</div>
+                                                    <div class="d-flex justify-content-between pe-5 mt-1 ">
+                                                        <div><img src="./img/Heart.png" alt=""></div>
+                                                        <div> <img src="./img/Chat.png" alt=""></div>
+                                                        <div><img src="./img/Bookmark.png" alt=""></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row px-4 py-3">
+
+                                                <div class="col-2"> <img src="./img/Kinnari Patel.png" alt=""> </div>
+                                                <div class="col-8 ms-4">
+                                                    <div class="row name">Kinnari Patel</div>
+                                                    <div class="row subtext">Hey there! I am tab 2. Here is my
+                                                        individual
+                                                        design...</div>
+                                                    <div class="d-flex justify-content-between pe-5 mt-1 ">
+                                                        <div><img src="./img/Heart.png" alt=""></div>
+                                                        <div> <img src="./img/Chat.png" alt=""></div>
+                                                        <div><img src="./img/Bookmark.png" alt=""></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="text-center"><a class="icon-color" href="#">View All</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- row-4 -->
+                        <div class=" row">
+                            <div class="col-sm-12 mt-2">
+                                <p class="middle-headings">Assigned Tasks</p>
+                                <div class="card border-0 shadow table-responsive">
+                                    <table class="table">
+                                        <thead class="table-2-headings bg-color">
+                                            <tr style="height: 50px;">
+                                                <td><span class="d-inline-block mb-2 ms-3">Task Name</span></td>
+                                                <td><span class="d-inline-block mb-2">Date</span></td>
+                                                <td><span class="d-inline-block mb-2">Logged Hours</span></td>
+                                                <td><span class="d-inline-block mb-2">Task Efficiency</span></td>
+                                                <td><span class="d-inline-block mb-2">Action</span></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-2-data bg-white">
+                                            <tr>
+                                                <td scope="row">Magento-VP file-edits</td>
+                                                <td>02 Jan 2023</td>
+                                                <td>04:00 hrs</td>
+                                                <th class="green-color">100%</th>
+                                                <td><i class="ms-3 fas fa-ellipsis-v"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">Magento-VP file-edits</td>
+                                                <td>02 Jan 2023</td>
+                                                <td>04:00 hrs</td>
+                                                <th class="green-color">100%</th>
+                                                <td><i class="ms-3 fas fa-ellipsis-v"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">Magento-VP file-edits</td>
+                                                <td>02 Jan 2023</td>
+                                                <td>04:00 hrs</td>
+                                                <th class="green-color">100%</th>
+                                                <td><i class="ms-3 fas fa-ellipsis-v"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">Magento-VP file-edits</td>
+                                                <td>02 Jan 2023</td>
+                                                <td>04:00 hrs</td>
+                                                <th class="green-color">100%</th>
+                                                <td><i class="ms-3 fas fa-ellipsis-v"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">Magento-VP file-edits</td>
+                                                <td>02 Jan 2023</td>
+                                                <td>04:00 hrs</td>
+                                                <th class="green-color">100%</th>
+                                                <td><i class="ms-3 fas fa-ellipsis-v"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">Magento-VP file-edits</td>
+                                                <td>02 Jan 2023</td>
+                                                <td>04:00 hrs</td>
+                                                <th class="green-color">100%</th>
+                                                <td><i class="ms-3 fas fa-ellipsis-v"></i></td>
+                                            </tr>
+                                            <tr class="tbl2-hide d-none">
+                                                <td scope="row">Magento-VP file-edits</td>
+                                                <td>02 Jan 2023</td>
+                                                <td>04:00 hrs</td>
+                                                <th class="green-color">100%</th>
+                                                <td><i class="ms-3 fas fa-ellipsis-v"></i></td>
+                                            </tr>
+                                            <tr class="tbl2-hide d-none">
+                                                <td scope="row">Magento-VP file-edits</td>
+                                                <td>02 Jan 2023</td>
+                                                <td>04:00 hrs</td>
+                                                <th class="green-color">100%</th>
+                                                <td><i class="ms-3 fas fa-ellipsis-v"></i></td>
+                                            </tr>
+                                            <tr class="tbl2-hide d-none">
+                                                <td scope="row">Magento-VP file-edits</td>
+                                                <td>02 Jan 2023</td>
+                                                <td>04:00 hrs</td>
+                                                <th class="green-color">100%</th>
+                                                <td><i class="ms-3 fas fa-ellipsis-v"></i></td>
+                                            </tr>
+                                            <tr class="tbl2-hide d-none">
+                                                <td scope="row">Magento-VP file-edits</td>
+                                                <td>02 Jan 2023</td>
+                                                <td>04:00 hrs</td>
+                                                <th class="green-color">100%</th>
+                                                <td><i class="ms-3 fas fa-ellipsis-v"></i></td>
+                                            </tr>
+                                            <tr class="tbl2-hide d-none">
+                                                <td scope="row">Magento-VP file-edits</td>
+                                                <td>02 Jan 2023</td>
+                                                <td>04:00 hrs</td>
+                                                <th class="green-color">100%</th>
+                                                <td><i class="ms-3 fas fa-ellipsis-v"></i></td>
+                                            </tr>
+                                            <tr class="tbl2-hide d-none">
+                                                <td scope="row">Magento-VP file-edits</td>
+                                                <td>02 Jan 2023</td>
+                                                <td>04:00 hrs</td>
+                                                <th class="green-color">100%</th>
+                                                <td><i class="ms-3 fas fa-ellipsis-v"></i></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <button class="text-primary border-0 bg-white pb-3 text-decoration-underline"
+                                        onclick="toggleTextShow('tbl2','show')" id="tbl2-show">
+                                        Show More
+                                    </button>
+                                    <button class="text-primary border-0 bg-white pb-3 text-decoration-underline d-none"
+                                        onclick="toggleTextShow('tbl2','hide')" id="tbl2-hide">
+                                        Show Less
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-12 col-md-12 mt-2">
+                        <!-- rightside-accordion-content -->
+                        <div class="accordion" id="accordionPanelsStayOpenExample">
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="panelsStayOpen-headingOne">
+                                    <div class=" bg-color" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                        aria-controls="panelsStayOpen-collapseOne">
+                                        <div class="d-flex justify-content-between p-3">
+                                            <div class="accordion-heading">
+                                                Birthdays Today
+                                            </div>
+                                            <div><img src="./img/cake.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                                    aria-labelledby="panelsStayOpen-headingOne">
+                                    <div class="accordion-body">
+                                        <div class="d-flex">
+                                            <div><img src="./img/shubham mehta.png" alt=""></div>
+                                            <div class="px-2">
+                                                <span class="d-block accordion-inner-headings">Shubham Mehta</span>
+                                                <span class="d-block accordion-text ui-ux-color">UX/UI Designer</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="accordion-hr">
+                                    <div class="accordion-body">
+                                        <div class="d-flex">
+                                            <div><img src="./img/palak panchal.png" alt=""></div>
+                                            <div class="px-2">
+                                                <span class="d-block accordion-inner-headings">Palak Panchal</span>
+                                                <span class="d-block accordion-text ui-ux-color">UX/UI Designer</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="panelsStayOpen-headingTwo">
+                                    <div class="collapsed bg-color" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                                        aria-controls="panelsStayOpen-collapseTwo">
+                                        <div class="d-flex justify-content-between p-3">
+                                            <div>
+                                                Work Anniversary
+                                            </div>
+                                            <div><img src="./img/celebration.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
+                                    aria-labelledby="panelsStayOpen-headingTwo">
+
+
+                                    <div class="accordion-body">
+                                        <div class="row">
+                                            <div class="col-2"><img src="./img/Suraj Kushwaha.png" alt=""></div>
+
+                                            <div class="col-6">
+                                                <p class="accordion-inner-headings m-0">Suraj Kushwaha</p>
+                                                <p class="accordion-text m-0">UX/UI Designer</p>
+                                            </div>
+                                            <div class="col-4">
+                                                <p>1 year</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-body">
+                                        <div class="row">
+                                            <div class="col-2"><img src="./img/Vishal Prajapati.png" alt=""></div>
+
+                                            <div class="col-6">
+                                                <p class="accordion-inner-headings m-0">Vishal Prajapati</p>
+                                                <p class="accordion-text m-0">UX/UI Designer</p>
+                                            </div>
+                                            <div class="col-4">
+                                                <p>2 year</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-body">
+                                        <div class="row">
+                                            <div class="col-2"><img src="./img/Uttam Vora.png" alt=""></div>
+
+                                            <div class="col-6">
+                                                <p class="accordion-inner-headings m-0">Uttam Vora</p>
+                                                <p class="accordion-text m-0">UX/UI Designer</p>
+                                            </div>
+                                            <div class="col-4">
+                                                <p>3 year</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-body">
+                                        <div class="row">
+                                            <div class="col-2"><img src="./img/Suraj Kushwaha 2.png" alt="">
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="accordion-inner-headings m-0">Suraj Kushwaha</p>
+                                                <p class="accordion-text m-0">UX/UI Designer</p>
+                                            </div>
+                                            <div class="col-4">
+                                                <p>3 year</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="panelsStayOpen-headingThree">
+                                    <div class="collapsed bg-color" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                                        aria-controls="panelsStayOpen-collapseThree">
+                                        <div class="d-flex justify-content-between p-3">
+                                            <div>
+                                                Holidays
+                                            </div>
+                                            <div><img src="./img/beach.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
+                                    aria-labelledby="panelsStayOpen-headingThree">
+                                    <div class="accordion-body">
+                                        <div class="d-flex">
+                                            <div><img src="./img/Uttrayan.png" alt=""></div>
+                                            <div class="px-2">
+                                                <span class="d-block accordion-inner-headings">Uttrayan</span>
+                                                <span class="d-block accordion-text holidays-color">14 Jan 2023 |
+                                                    Friday</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-body">
+                                        <div class="d-flex">
+                                            <div><img src="./img/Uttrayan.png" alt=""></div>
+                                            <div class="px-2">
+                                                <span class="d-block accordion-inner-headings">Vashi Uttrayan</span>
+                                                <span class="d-block accordion-text holidays-color">15 Jan 2023 |
+                                                    Saturday</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-body">
+                                        <div class="d-flex">
+                                            <div><img src="./img/Republic Day.png" alt=""></div>
+                                            <div class="px-2">
+                                                <span class="d-block accordion-inner-headings">Republic Day</span>
+                                                <span class="d-block accordion-text holidays-color">26 Jan 2023 |
+                                                    Wednesday</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-body">
+                                        <div class="d-flex">
+                                            <div><img src="./img/Holi.png" alt=""></div>
+                                            <div class="px-2">
+                                                <span class="d-block accordion-inner-headings">Holi</span>
+                                                <span class="d-block accordion-text holidays-color">18 March 2023 |
+                                                    Friday</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-body">
+                                        <div class="d-flex">
+                                            <div><img src="./img/Republic Day.png" alt=""></div>
+                                            <div class="px-2">
+                                                <span class="d-block accordion-inner-headings">Republic Day</span>
+                                                <span class="d-block accordion-text holidays-color">26 Jan 2023 |
+                                                    Wednesday</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-body">
+                                        <div class="d-flex">
+                                            <div><img src="./img/Holi.png" alt=""></div>
+                                            <div class="px-2">
+                                                <span class="d-block accordion-inner-headings">Holi</span>
+                                                <span class="d-block accordion-text holidays-color">18 March 2023 |
+                                                    Friday</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+        </script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

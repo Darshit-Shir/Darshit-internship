@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Poppins:wght@300;700&display=swap');
+
+.center {
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 46px;
+}
+
+.navbar li {
+    float: left;
+    list-style: none;
+}
+
+.navbar li a {
+    padding: 0px 10px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.active {
+    color: #05427B;
+
+}
+
+.navbar li a:hover {
+    color: #05427B;
+}
+
+.account-button {
+    /* margin-left: 10px; */
+    border-radius: 9px;
+    width: 148px;
+    height: 59px;
+    margin-top: -59px;
+    border: none;
+    background-color: #05427B;
+    color: white;
+}
+
+.flex {
+    display: flex;
+}
+
+.account-button span {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.heading {
+    margin-top: 103px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 72px;
+    color: #000000;
+}
+
+.leftcenter {
+    margin-top: 35px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 35px;
+    color: #767373;
+
+}
+
+.section1 {
+    margin-top: 125px;
+}
+
+.sec1left {
+    max-width: 50%;
+    height: 484px;
+}
+
+.sec1right {
+    border: 10px solid #05427B;
+    border-radius: 0 90px;
+}
+
+.sec1right img {
+    transform: translate(7%, 7%);
+}
+
+.leftbottom {
+    margin-top: 35px;
+}
+
+.centerheadings {
+    margin: 0;
+    margin-top: 90px;
+    text-align: center;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 72px;
+    color: #000000;
+}
+
+hr {
+    width: 140px;
+    border: 3px solid #00749A;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 95px;
+}
+
+.card1 {
+
+    width: 30%;
+    height: 20%;
+    box-sizing: border-box;
+    background: #F5F5F5;
+    border: 1px solid #00749A;
+    border-radius: 20px;
+    padding: 35px;
+}
+
+.card1image {
+    height: 63px;
+    width: 63px;
+}
+
+.card-wordpress {
+
+    margin-left: 26px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    display: flex;
+    align-items: flex-end;
+    color: #000000;
+}
+
+.card-bottom {
+    align-items: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 35px;
+    color: #767373;
+}
+
+.below-card {
+    text-align: center;
+    justify-content: center;
+}
+
+.below-card-wordpress {
+    justify-content: space-around;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    display: flex;
+    color: #000000;
+}
+
+.column-card-center {
+    max-width: 50%;
+    margin: 90px auto;
+    justify-content: space-around;
+    display: flex;
+    /* margin-top: 50px; */
+}
+
+.card4-5 {
+    /* margin-top: 98px; */
+    width: 40%;
+    height: 20%;
+    box-sizing: border-box;
+    background: #F5F5F5;
+    border: 1px solid #00749A;
+    border-radius: 20px;
+    padding: 40px;
+}
+
+.footer-blue {
+    background: #00749A;
+    color: #FFFFFF;
+    padding: 135px 0;
+    margin-top: 95px;
+}
+
+.footer-blue .heading {
+    text-align: center;
+    color: #FFFFFF;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 54px;
+}
+
+.footer-blue .sub-heading {
+    /* padding: 220px 410px; */
+    margin: 30px AUTO;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    line-height: 35px;
+}
+
+.center60 {
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+.subscribe-button {
+    border-radius: 9px;
+    width: 148px;
+    height: 59px;
+    border: none;
+    background-color: white;
+    color: #05427B;
+
+}
+
+.subscribe-button span {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-black {
+    background-color: black;
+    color: white;
+    padding: 150px 0;
+}
+
+.leftcontent {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 35px;
+    color: #FFFFFF;
+    padding-right: 50px;
+}
+
+.black-left {
+    max-width: 45%;
+
+
+}
+
+.black-right {
+    width: 100%;
+    margin-left: 20px;
+}
+
+.right-heading {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 35px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.black-right input {
+    padding: 25px 30px;
+    display: inline;
+    width: 90%;
+    margin-bottom: 38px;
+    margin-top: 56px;
+    background: #000000;
+    border: 2px solid #FFFFFF;
+    border-radius: 13px;
+    color: white;
+}
+
+.portfolio {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 95px;
+}
+
+.portfolio-card {
+    width: 409px;
+    height: 463px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.grocery {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    display: flex;
+    align-items: flex-end;
+    color: #0B7C4F;
+}
+
+.date {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    color: #000000;
+}
+
+.content-up {
+    justify-content: space-between;
+    margin: 0 20px;
+
+}
+
+.content-bottom {
+    margin: 0 20px;
+    margin-top: 15px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 35px;
+    color: #767373;
+}

@@ -1,0 +1,39 @@
+body {
+  background-image: url("../images/13223496_5183000.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+input:invalid,
+textarea:invalid {
+  border: 1.5px solid red !important;
+  box-shadow: 0 0 10px red;
+}
+
+@media only screen and (max-width: 991px) {
+  .headerRow {
+    display: none !important;
+  }
+
+  .small-screen-label {
+    display: block !important;
+  }
+
+  .small-screen-border {
+    margin-top: 5% !important;
+    border: 1px solid black !important;
+  }
+
+  .small-screen-margin {
+    margin: 3% 0 2% 0 !important;
+  }
+
+}
+
+p {
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
