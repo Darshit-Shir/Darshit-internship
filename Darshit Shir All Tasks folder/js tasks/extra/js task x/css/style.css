@@ -1,0 +1,11 @@
+input:invalid,
+textarea:invalid {
+  border: 1.5px solid red !important;
+  box-shadow: 0 0 10px red!important;
+}
+
+body  {
+    background-image: url("../images/13223496_5183000.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }

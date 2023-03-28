@@ -178,7 +178,6 @@ function addRowEducaion(isDefault) {
     percentageLabel.innerHTML = "Percentage"
     percentageLabel.classList = "form-label fw-bold fs-5 mt-2 d-none small-screen-label"
     let percentage = document.createElement("input")
-    percentage.setAttribute("pattern", "[0-9]|[1-9][0-9]|[1][0][0]")
     percentage.setAttribute("type", "text")
     percentage.setAttribute("id", "percentage" + idcounter)
     percentage.setAttribute("placeholder", "00")
@@ -192,7 +191,6 @@ function addRowEducaion(isDefault) {
     backlogLabel.innerHTML = "Backlog"
     backlogLabel.classList = "form-label fw-bold fs-5 mt-2 d-none small-screen-label"
     let backlog = document.createElement("input")
-    backlog.setAttribute("pattern", "[0-9]")
     backlog.setAttribute("type", "text")
     backlog.setAttribute("id", "backlog" + idcounter)
     backlog.setAttribute("placeholder", "0")
@@ -245,8 +243,8 @@ function validation() {
 
     var mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     var text = /^[A-Za-z]+$/
-    var percentage = /^[0-9]|[1-9][0-9]|[1][0][0]+$/
-    backlog = /^[0-9]+$/
+    var percentageFormat = /^(100|[1-9][0-9]?)$/
+    var backlogFormat = /^(?:[0-9]|0[1-9]|10)$/
 
     switch (true) {
         case (fName.value == ""):
@@ -327,7 +325,8 @@ function validation() {
                         rows.childNodes[4].childNodes[1].focus()
                         break
 
-                    case !(rows.childNodes[4].childNodes[1].value).match(percentage):
+                    case !(rows.childNodes[4].childNodes[1].value).match(percentageFormat):
+                        rows.childNodes[4].childNodes[1].value = ""
                         rows.childNodes[4].childNodes[1].focus()
                         break
 
@@ -335,7 +334,8 @@ function validation() {
                         rows.childNodes[5].childNodes[1].focus()
                         break
 
-                    case !(rows.childNodes[5].childNodes[1].value).match(backlog):
+                    case !(rows.childNodes[5].childNodes[1].value).match(backlogFormat):
+                        rows.childNodes[5].childNodes[1].value = ""
                         rows.childNodes[5].childNodes[1].focus()
                         break
 

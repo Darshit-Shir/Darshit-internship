@@ -5,105 +5,115 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darshit</title>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <title>Darshit_js_Task3</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+        href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css"
+        rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script
+        src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
-    <div class="container mt-5">
+<body class="wrapper">
 
-        <!-- modal -->
-        <div class="my-3">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-                Add Data
-            </button>
+    <div class="container">
+        <div class="col-lg-12 mt-4">
+            <h1 class="text-center text-white">FORM</h1>
         </div>
-
-        <div class="modal fade" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <div class="modal-title fw-bold fs-5">Fields</div>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="closeBtn()" id="close"></button>
+        <form id="formReset" onsubmit="return false" name="myForm">
+            <div class="row mb-4 mt-5">
+                <div class="col-lg-6 col-sm-12 mb-4 mb-md-0 mb-lg-0">
+                    <div class="form-outline">
+                        <label class="form-label fw-bold fs-5">First Name :</label>
+                        <input type="text" class="form-control" name="fName" placeholder="First Name"
+                            pattern="[a-zA-Z]+" value="Asfs"/>
                     </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <form onsubmit="return false" name="myForm" id="form">
-                            <div class="row">
-                                <div class="col-lg-6 col-sm-12">
-                                    <div class="form-outline">
-                                        <label class="form-label fw-bold fs-5">First Name :</label>
-                                        <input type="text" class="form-control" id="fName" placeholder="First Name"
-                                            pattern="[a-zA-Z]+"/>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-sm-12">
-                                    <div class="form-outline">
-                                        <label class="form-label fw-bold fs-5 mt-lg-0 mt-md-4 ">Last Name :</label>
-                                        <input type="text" class="form-control" id="lName" placeholder="Last Name"
-                                            pattern="[a-zA-Z]+" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row my-3">
-                                <div class="col-lg-6 col-sm-12 form-outline">
-                                    <label class="form-label fw-bold fs-5 ">Date Of Birth : </label>
-                                    <input type="date" class="form-control" id="dateOfBirth"
-                                        placeholder="mm/dd/yyyy" max="2001-12-31"/>
-                                </div>
-                                <div class="col-lg-6 col-sm-12 form-outline">
-                                    <label class="form-label fw-bold fs-5 ">Graduation Year : </label>
-                                    <input type="month" class="form-control" id="graduationYear"/>
-                                </div>
-                            </div>
-                            <div class="row my-3">
-                                <div class="col-lg-12 form-outline">
-                                    <label class="form-label fw-bold fs-5 ">Email :</label>
-                                    <input type="email" class="form-control" id="email" placeholder="abc@gmail.com" />
-                                </div>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label fw-bold fs-5 ">Address :</label>
-                                <textarea class="form-control" rows="4" id="address" placeholder="Address"></textarea>
-                            </div>
-                        </form>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <div class="form-outline">
+                        <label class="form-label fw-bold fs-5 mt-lg-0 mt-md-4 ">Last Name :</label>
+                        <input type="text" class="form-control" name="lName" placeholder="Last Name"
+                            pattern="[a-zA-Z]+" value="asdgdss"/>
                     </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-success" id="addRow" onclick="submitBtn()">Submit</button>
-                    </div>
-
                 </div>
             </div>
-        </div>
+            <div class="row ">
+                <div class="col-lg-6 col-sm-12 form-outline mb-4">
+                    <label class="form-label fw-bold fs-5 ">Date Of Birth : </label>
+                    <input type="date" class="form-control" name="dateOfBirth" placeholder="mm/dd/yyyy"
+                        max="2002-12-12" />
+                </div>
+                <div class="col-lg-6 col-sm-12 form-outline mb-4">
+                    <label class="form-label fw-bold fs-5 ">Graduation Year : </label>
+                    <div id="yearPicker0">
+                        <input type="text" class="form-control" name="gradutionYear" placeholder="YYYY" value="2021">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-sm-12 form-outline mb-4">
+                    <label class="form-label fw-bold fs-5 ">Email :</label>
+                    <input type="email" class="form-control" name="email" placeholder="abc@gmail.com" />
+                </div>
+                <div class="col-lg-6 col-sm-12 form-outline mb-4">
+                    <label class="form-label fw-bold fs-5">Password :</label>
+                    <input type="password" class="form-control" name="password" placeholder="Password" />
+                </div>
+            </div>
+            <div class="form-outline mb-4">
+                <label class="form-label fw-bold fs-5 ">Address :</label>
+                <textarea class="form-control" rows="4" name="address" placeholder="Address"></textarea>
+            </div>
 
-        <!-- table -->
-        <div>
-            <table id="table" class="display dataTable">
-                <thead>
-                    <tr>
-                        <th class="sorting sorting_asc">Id</th>
-                        <th class="sorting sorting_asc">Full Name</th>
-                        <th class="sorting">Date of Birth</th>
-                        <th class="sorting">Graduation Year</th>
-                        <th class="sorting">Email</th>
-                        <th class="sorting">Address</th>
-                    </tr>
+            <div class="d-flex mt-5 justify-content-between">
+                <div>
+                    <h1 class="text-white">Education</h1>
+                </div>
+                <div>
+                    <button type="button" class="button buttonAdd" style="--clr:#39FF14"
+                        onclick="addRow(false)"><span>Add</span><i></i></button>
+                </div>
+            </div>
+
+            <div class="row headerRow mt-3">
+                <div class="col-lg-2 fw-bold fs-5 text-light">Degree</div>
+                <div class="col-lg-2 fw-bold fs-5 text-light">College</div>
+                <div class="col-lg-2 fw-bold fs-5 text-light">Start Date</div>
+                <div class="col-lg-2 fw-bold fs-5 text-light">Pass Out Year</div>
+                <div class="col-lg-1 fw-bold fs-5 text-light">Percentage</div>
+                <div class="col-lg-1 fw-bold fs-5 text-light">Backlog</div>
+                <div class="col-lg-1 fw-bold fs-5 text-light"></div>
+            </div>
+
+            <div id="mainDiv"></div>
+
+            <div class="text-center my-4">
+                <button class="button buttonSubmit" style="--clr:#FF44CC"
+                    onclick="onSubmit()"><span>Submit</span><i></i></button>
+            </div>
+        </form>
+
+        <div class="d-none" id="tableShow">
+            <table class="table table-responsive table-danger table-striped">
+                <thead class="fw-bold fs-5">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date Of Birth</th>
+                    <th>Graduation Year</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Address</th>
+                    <th></th>
                 </thead>
+                <tbody id="table"></tbody>
             </table>
         </div>
     </div>
 
+    <script src="./js/script.js"></script>
 
 </body>
 

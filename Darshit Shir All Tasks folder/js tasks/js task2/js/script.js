@@ -155,7 +155,7 @@ function validateform() {
 
           case !(tr.childNodes[1].childNodes[0].value.match(text)):
             tr.childNodes[1].childNodes[0].value = ""
-            tr.childNodes[1].childNodes[0].setAttribute("placeholder", "text only")            
+            tr.childNodes[1].childNodes[0].setAttribute("placeholder", "text only")
             break
 
           case (tr.childNodes[3].childNodes[0].value == ""):
@@ -191,7 +191,6 @@ function validateform() {
 }
 
 function onSubmit() {
-  arrResult = [];
 
   let fName = document.myForm.fName.value
   let lName = document.myForm.lName.value
@@ -210,46 +209,38 @@ function onSubmit() {
   document.myForm.address.setAttribute("required", "true")
 
   for (tr of table.rows) {
-      tr.childNodes[0].childNodes[0].setAttribute("required", "true")
-      tr.childNodes[1].childNodes[0].setAttribute("required", "true")
-      tr.childNodes[2].childNodes[0].setAttribute("required", "true")
-      tr.childNodes[3].childNodes[0].setAttribute("required", "true")
-      tr.childNodes[4].childNodes[0].setAttribute("required", "true")
-      tr.childNodes[5].childNodes[0].setAttribute("required", "true")
-    }
-
-    console.clear()
-
-
-  let data = {
-    "First Name": fName,
-    "Last  Name": lName,
-    "Date of Birth": dateOfBirth,
-    "Gradution Year": gradutionYear,
-    "Email": email,
-    "Password": password,
-    "Address": address,
-    "Education" : arrResult
+    tr.childNodes[0].childNodes[0].setAttribute("required", "true")
+    tr.childNodes[1].childNodes[0].setAttribute("required", "true")
+    tr.childNodes[2].childNodes[0].setAttribute("required", "true")
+    tr.childNodes[3].childNodes[0].setAttribute("required", "true")
+    tr.childNodes[4].childNodes[0].setAttribute("required", "true")
+    tr.childNodes[5].childNodes[0].setAttribute("required", "true")
   }
+
+  console.clear()
 
   if (validateform()) {
-    console.log(data)
 
+    console.log("First Name: " + fName +
+      "\nLast Name: " + lName +
+      "\nDate of Birth: " + dateOfBirth +
+      "\nGradution Year: " + gradutionYear +
+      "\nEmail: " + email +
+      "\nPassword: " + password +
+      "\nAddress: " + address)
+      console.log("Education: ")
     for (tr of table.rows) {
-      rowData = {
-        "degree": tr.childNodes[0].childNodes[0].value,
-        "college": tr.childNodes[1].childNodes[0].value,
-        "Start Date": new Date(tr.childNodes[2].childNodes[0].value),
-        "Pass Out Year": new Date(tr.childNodes[3].childNodes[0].value),
-        "Percentage (%)": tr.childNodes[4].childNodes[0].value,
-        "Backlog": tr.childNodes[5].childNodes[0].value,
-      }
-      arrResult.push(rowData)
+      console.log(
+        "degree: " + tr.childNodes[0].childNodes[0].value,
+        "\ncollege: " + tr.childNodes[1].childNodes[0].value,
+        "\nStart Date: " + new Date(tr.childNodes[2].childNodes[0].value),
+        "\nPass Out Year: " + new Date(tr.childNodes[3].childNodes[0].value),
+        "\nPercentage(%): " + tr.childNodes[4].childNodes[0].value,
+        "\nBacklog: " + tr.childNodes[5].childNodes[0].value
+      )
     }
   }
-
 }
-
 // year picker calendar
 $('#yearPicker0').calendar({
   type: 'year'

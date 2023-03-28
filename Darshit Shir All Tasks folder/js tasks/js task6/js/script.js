@@ -18,10 +18,13 @@ document.addEventListener('DOMContentLoaded', function () {
             { data: 'graduationYear' },
             { data: 'email' },
             { data: 'address' },
-            { data: 'action' }
+            {
+                "mData": null,
+                "bSortable": false,
+                "mRender": function (o) { return '<button class="btn btn-secondary" onclick="editBtn(this)" data-bs-toggle="modal" data-bs-target="#myModal" id= edit' + o.id + '>' + 'Edit' + '</button>' + '<button class="btn btn-danger ms-1" onclick="deleteBtn(this)" id= delete' + o.id + '>' + 'Delete' + '</button>'; }
+            }
         ],
     });
-    // Add event listener for opening and closing details
     $('#table tbody').on('click', 'td.dt-control', function () {
         var tr = $(this).closest('tr');
         var row = table.row(tr);
@@ -52,7 +55,6 @@ function format(edu) {
     ]
 
     for (i = 0; i < edu.education.length; i++) {
-
         a = [
             '<tr>' +
             '<td>' +
@@ -77,7 +79,6 @@ function format(edu) {
         ]
         educationData += a
     }
-
     return (
         educationData
     );
@@ -88,7 +89,6 @@ $(document).ready(function () {
     var education = $('#education').DataTable({
         ajax: '../data/data5.json',
         columns: [
-
             { data: 'education' },
             { data: 'degree' },
             { data: 'college' },
@@ -99,15 +99,18 @@ $(document).ready(function () {
         order: [[1, 'asc']],
     });
 });
-let arrayOfJson = []
-let id = 6
-let idcounter = 1
-let counter = 0
-let arrResult = []
+
+var arrayOfJson = []
+var id = 6
+var idcounter = 1
+var counter = 0
 var isDefault
-let mainDiv = document.getElementById("mainDiv")
-let editcounter = 1
-let addcounter = 0
+var btnClick
+var mainDiv = document.getElementById("mainDiv")
+
+function addBtnTable() {
+    btnClick = "addClick"
+}
 
 for (i = 0; i < 2; i++) {
     addRowEducaion(true)
@@ -115,9 +118,7 @@ for (i = 0; i < 2; i++) {
 
 // add row function
 function addRowEducaion(isDefault) {
-
     counter++
-
     let educationDiv = document.createElement("div")
     educationDiv.classList = "row mt-2 small-screen-border pb-2"
     educationDiv.setAttribute("id", "row" + idcounter)
@@ -155,7 +156,6 @@ function addRowEducaion(isDefault) {
     startDateLabel.classList = "form-label fw-bold fs-5 mt-2 d-none small-screen-label"
     let startDate = document.createElement("input")
     startDate.setAttribute("type", "month")
-    startDate.setAttribute("id", "startDate" + idcounter)
     startDate.classList = "form-control mt-2"
     startDateDiv.appendChild(startDateLabel)
     startDateDiv.appendChild(startDate)
@@ -167,7 +167,6 @@ function addRowEducaion(isDefault) {
     passOutYearLabel.classList = "form-label fw-bold fs-5 mt-2 d-none small-screen-label"
     let passOutYear = document.createElement("input")
     passOutYear.setAttribute("type", "month")
-    passOutYear.setAttribute("id", "passOutYear" + idcounter)
     passOutYear.classList = "form-control mt-2"
     passOutYearDiv.appendChild(passOutYearLabel)
     passOutYearDiv.appendChild(passOutYear)
@@ -178,7 +177,6 @@ function addRowEducaion(isDefault) {
     percentageLabel.innerHTML = "Percentage"
     percentageLabel.classList = "form-label fw-bold fs-5 mt-2 d-none small-screen-label"
     let percentage = document.createElement("input")
-    percentage.setAttribute("pattern", "[0-9]|[1-9][0-9]|[1][0][0]")
     percentage.setAttribute("type", "text")
     percentage.setAttribute("id", "percentage" + idcounter)
     percentage.setAttribute("placeholder", "00")
@@ -192,7 +190,6 @@ function addRowEducaion(isDefault) {
     backlogLabel.innerHTML = "Backlog"
     backlogLabel.classList = "form-label fw-bold fs-5 mt-2 d-none small-screen-label"
     let backlog = document.createElement("input")
-    backlog.setAttribute("pattern", "[0-9]")
     backlog.setAttribute("type", "text")
     backlog.setAttribute("id", "backlog" + idcounter)
     backlog.setAttribute("placeholder", "0")
@@ -242,11 +239,10 @@ function validation() {
     graduationYear = document.getElementById("graduationYear")
     email = document.getElementById("email")
     address = document.getElementById("address")
-
     var mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     var text = /^[A-Za-z]+$/
-    var percentage = /^[0-9]|[1-9][0-9]|[1][0][0]+$/
-    backlog = /^[0-9]+$/
+    var percentageFormat = /^(100|[1-9][0-9]?)$/
+    var backlogFormat = /^(?:[0-9]|0[1-9]|10)$/
 
     switch (true) {
         case (fName.value == ""):
@@ -319,7 +315,8 @@ function validation() {
                         rows.childNodes[4].childNodes[1].focus()
                         break
 
-                    case !((rows.childNodes[4].childNodes[1].value).match(percentage)):
+                    case !((rows.childNodes[4].childNodes[1].value).match(percentageFormat)):
+                        rows.childNodes[4].childNodes[1].value = ""
                         rows.childNodes[4].childNodes[1].focus()
                         break
 
@@ -327,7 +324,8 @@ function validation() {
                         rows.childNodes[5].childNodes[1].focus()
                         break
 
-                    case !((rows.childNodes[5].childNodes[1].value).match(backlog)):
+                    case !((rows.childNodes[5].childNodes[1].value).match(backlogFormat)):
+                        rows.childNodes[5].childNodes[1].value = ""
                         rows.childNodes[5].childNodes[1].focus()
                         break
 
@@ -345,8 +343,8 @@ function validation() {
 }
 
 // submit button
-function submitBtn() {
-    eduArr = []
+function submitBtn(isEdit) {
+    let eduArr = []
     document.getElementById("fName").setAttribute("required", "true")
     document.getElementById("lName").setAttribute("required", "true")
     document.getElementById("dateOfBirth").setAttribute("required", "true")
@@ -363,78 +361,115 @@ function submitBtn() {
         rows.childNodes[5].childNodes[1].setAttribute("required", "true")
     }
 
-    let array = []
-    let fName = document.getElementById("fName").value
-    let lName = document.getElementById("lName").value
-    let dateOfBirth = document.getElementById("dateOfBirth").value
-    let graduationYear = document.getElementById("graduationYear").value
-    let email = document.getElementById("email").value
-    let address = document.getElementById("address").value
-    let action = `<button class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#myModal' id = '${id}' onclick='editBtn(this)'>Edit</button><button class='btn btn-danger ms-1' id='deleteRow' onclick='JSalert()'>Delete</button>`
-    let data = {
-        "id": id,
-        "name": fName + " " + lName,
-        "dob": dateOfBirth,
-        "graduationYear": graduationYear,
-        "email": email,
-        "address": address,
-        "education": eduArr
-    }
-    arrayOfJson.push(data)
+    if (validation()) {
+        if (btnClick == "addClick") {
+            let fName = document.getElementById("fName").value
+            let lName = document.getElementById("lName").value
+            let dateOfBirth = document.getElementById("dateOfBirth").value
+            let graduationYear = document.getElementById("graduationYear").value
+            let email = document.getElementById("email").value
+            let address = document.getElementById("address").value
+            let data = {
+                "id": id,
+                "name": fName + " " + lName,
+                "dob": dateOfBirth,
+                "graduationYear": graduationYear,
+                "email": email,
+                "address": address,
+                "education": eduArr
+            }
+            for (rows of mainDiv.childNodes) {
 
+                rowData = {
+                    "degree": rows.childNodes[0].childNodes[1].value,
+                    "college": rows.childNodes[1].childNodes[1].value,
+                    "startDate": rows.childNodes[2].childNodes[1].value,
+                    "passOutYear": rows.childNodes[3].childNodes[1].value,
+                    "percentage": rows.childNodes[4].childNodes[1].value,
+                    "backlog": rows.childNodes[5].childNodes[1].value,
+                }
+                eduArr.push(rowData)
+            }
+            arrayOfJson.push(data)
 
-    array.push(data)
-    // if (validation()) {
-    $(document).ready(function () {
-        var t = $('#table').DataTable();
+            var t = $('#table').DataTable();
+            t.row.add({
+                "id": id,
+                "name": fName + " " + lName,
+                "dob": new Date(dateOfBirth).toDateString(),
+                "graduationYear": (graduationYear),
+                "email": data.email,
+                "address": data.address,
+                "education": data.education,
+            }).draw(false);
+            id++
+            $("#myModal").modal("hide");
 
-        t.row.add({
-            "id": id,
-            "name": fName + " " + lName,
-            "dob": new Date(dateOfBirth).toDateString(),
-            "graduationYear": (graduationYear).slice(0, 4),
-            "email": data.email,
-            "address": data.address,
-            "education": data.education,
-            "action": action
-        }).draw(false);
-        id++
-        $("#myModal").modal("hide");
-    });
-
-
-
-    for (rows of mainDiv.childNodes) {
-
-        rowData = {
-            "degree": rows.childNodes[0].childNodes[1].value,
-            "college": rows.childNodes[1].childNodes[1].value,
-            "startDate": (new Date(rows.childNodes[2].childNodes[1].value)).toDateString(),
-            "passOutYear": (new Date(rows.childNodes[3].childNodes[1].value)).toDateString(),
-            "percentage": rows.childNodes[4].childNodes[1].value,
-            "backlog": rows.childNodes[5].childNodes[1].value,
         }
-        eduArr.push(rowData)
-    }
+        else {
+            let fName = document.getElementById("fName").value
+            let lName = document.getElementById("lName").value
+            let dateOfBirth = document.getElementById("dateOfBirth").value
+            let graduationYear = document.getElementById("graduationYear").value
+            let email = document.getElementById("email").value
+            let address = document.getElementById("address").value
+            let editData = {
+                "id": arrayOfJson[objWithIdIndex].id,
+                "name": fName + " " + lName,
+                "dob": dateOfBirth,
+                "graduationYear": graduationYear,
+                "email": email,
+                "address": address,
+                "education": eduArr
+            }
+            for (rows of mainDiv.childNodes) {
 
-    document.getElementById("fName").removeAttribute("required", "true")
-    document.getElementById("lName").removeAttribute("required", "true")
-    document.getElementById("dateOfBirth").removeAttribute("required", "true")
-    document.getElementById("graduationYear").removeAttribute("required", "true")
-    document.getElementById("email").removeAttribute("required", "true")
-    document.getElementById("address").removeAttribute("required", "true")
+                rowData = {
+                    "degree": rows.childNodes[0].childNodes[1].value,
+                    "college": rows.childNodes[1].childNodes[1].value,
+                    "startDate": rows.childNodes[2].childNodes[1].value,
+                    "passOutYear": rows.childNodes[3].childNodes[1].value,
+                    "percentage": rows.childNodes[4].childNodes[1].value,
+                    "backlog": rows.childNodes[5].childNodes[1].value,
+                }
+                eduArr.push(rowData)
+            }
 
-    for (rows of mainDiv.childNodes) {
-        rows.childNodes[0].childNodes[1].removeAttribute("required", "true")
-        rows.childNodes[1].childNodes[1].removeAttribute("required", "true")
-        rows.childNodes[2].childNodes[1].removeAttribute("required", "true")
-        rows.childNodes[3].childNodes[1].removeAttribute("required", "true")
-        rows.childNodes[4].childNodes[1].removeAttribute("required", "true")
-        rows.childNodes[5].childNodes[1].removeAttribute("required", "true")
+            var t = $('#table').DataTable();
+            t.row(objWithIdIndex).data({
+                "id": arrayOfJson[objWithIdIndex].id,
+                "name": fName + " " + lName,
+                "dob": new Date(dateOfBirth).toDateString(),
+                "graduationYear": (graduationYear),
+                "email": email,
+                "address": address,
+                "education": editData.education,
+            }).draw(false);
+            $("#myModal").modal("hide");
+            arrayOfJson[objWithIdIndex] = editData
+        }
+
+        document.getElementById("fName").removeAttribute("required", "true")
+        document.getElementById("lName").removeAttribute("required", "true")
+        document.getElementById("dateOfBirth").removeAttribute("required", "true")
+        document.getElementById("graduationYear").removeAttribute("required", "true")
+        document.getElementById("email").removeAttribute("required", "true")
+        document.getElementById("address").removeAttribute("required", "true")
+
+        for (rows of mainDiv.childNodes) {
+            rows.childNodes[0].childNodes[1].removeAttribute("required", "true")
+            rows.childNodes[1].childNodes[1].removeAttribute("required", "true")
+            rows.childNodes[2].childNodes[1].removeAttribute("required", "true")
+            rows.childNodes[3].childNodes[1].removeAttribute("required", "true")
+            rows.childNodes[4].childNodes[1].removeAttribute("required", "true")
+            rows.childNodes[5].childNodes[1].removeAttribute("required", "true")
+        }
+        form.reset()
+        mainDiv.innerHTML = ""
+        for (i = 0; i < 2; i++) {
+            addRowEducaion(true)
+        }
     }
-    console.log(arrayOfJson);
-    form.reset()
-    // }
 }
 
 // form close button
@@ -462,75 +497,73 @@ function closeBtn() {
 }
 
 // delete row function
-// $(document).ready(function () {
-//     var table = $('#table').DataTable();
-
-//     $('#table tbody').on('click', '#deleteRow', function () {
-//         table
-//             .row($(this).parents('tr'))
-//             .remove()
-//             .draw();
-//     });
-// });
-
-
-
-// eduArr = []
-
-function editBtn(e, isDefault) {
-    let eId = Number(e.id) - 1
-    // console.log(arrayOfJson[Number(e.id) - 1].education.length);
-    // console.log(arrayOfJson.length);
-
-    var name = arrayOfJson[eId].name
-    var fullName = name.split(' ')
-    firstName = fullName[0]
-    lastName = fullName[1]
-    dob = arrayOfJson[eId].dob
-    gYear = arrayOfJson[eId].graduationYear
-    emailid = arrayOfJson[eId].email
-    adr = arrayOfJson[eId].address
-    education = []
-    // education.push(arrayOfJson[eId].education)
-    let data = {
-        "id": e.id,
-        "First_Name": (fName.value = firstName),
-        "Last_Name": (lName.value = lastName),
-        "dob": dateOfBirth.value = dob.toLocaleString(),
-        "graduationYear": graduationYear.value = gYear,
-        "email": email.value = emailid,
-        "address": address.value = adr,
-        "education": education
+function deleteBtn(del) {
+    if (confirm("Are you sure you want to delete?")) {
+        const objWithIdIndex = arrayOfJson.findIndex((o) => o.id === Number(((del.id).slice(6))));
+        if (objWithIdIndex > -1) {
+            arrayOfJson.splice(objWithIdIndex, 1);
+        }
+        var table = $('#table').DataTable();
+        $('#table tbody').on('click', `#${del.id}`, function () {
+            table
+                .row($(this).parents('tr'))
+                .remove()
+                .draw();
+        });
     }
-    
-    let x = arrayOfJson[Number(e.id) - 1].education.length
-    for (k = 0; k < x - 2; k++) {
-        addRowEducaion(true)
-    }
-
-    // console.log(arrayOfJson[eId].education.length);
-    // for (rows of mainDiv.childNodes) {
-        // console.log(mainDiv.childNodes);
-        // console.log(mainDiv.children);
-        for (i = 0; i < mainDiv.childNodes.length; i++) {
-            z = arrayOfJson[eId].education[i]
-            degree = z.degree
-            college = z.college
-            startDate = z.startDate
-            passOutYear = z.passOutYear
-            percentage = z.percentage
-            backlog = z.backlog
-            rowData = {
-                "degree":  mainDiv.childNodes[i].childNodes[0].childNodes[1].value = degree,
-                "college":  mainDiv.childNodes[i].childNodes[1].childNodes[1].value = college,
-                "startDate":  mainDiv.childNodes[i].childNodes[2].childNodes[1].value = startDate,
-                "passOutYear":  mainDiv.childNodes[i].childNodes[3].childNodes[1].value = passOutYear,
-                "percentage":  mainDiv.childNodes[i].childNodes[4].childNodes[1].value = percentage,
-                "backlog":  mainDiv.childNodes[i].childNodes[5].childNodes[1].value = backlog,
-            }
-        console.log(rowData);
+    else {
     }
 }
 
 
+let objWithIdIndex
+function editBtn(e) {
+    objWithIdIndex = arrayOfJson.findIndex((o) => o.id === Number(((e.id).slice(4))));
+    if (objWithIdIndex > -1) {
+        btnClick = "editClick";
+        var name = arrayOfJson[objWithIdIndex].name
+        var fullName = name.split(' ')
+        firstName = fullName[0]
+        lastName = fullName[1]
+        dob = arrayOfJson[objWithIdIndex].dob
+        gYear = arrayOfJson[objWithIdIndex].graduationYear
+        emailid = arrayOfJson[objWithIdIndex].email
+        adr = arrayOfJson[objWithIdIndex].address
+        education = []
+        data = {
+            "id": objWithIdIndex + 1,
+            "First_Name": (fName.value = firstName),
+            "Last_Name": (lName.value = lastName),
+            "dob": dateOfBirth.value = (new Date(dob).getFullYear().toString() + '-' + (new Date(dob).getMonth() + 1).toString().padStart(2, "0") + '-' + new Date(dob).getDate().toString().padStart(2, "0")),
+            "graduationYear": graduationYear.value = gYear,
+            "email": email.value = emailid,
+            "address": address.value = adr,
+            "education": education
+        }
 
+        let eduLength = arrayOfJson[objWithIdIndex].education.length
+        for (k = 0; k < eduLength - 2; k++) {
+            addRowEducaion(true)
+        }
+
+        for (i = 0; i < mainDiv.childNodes.length; i++) {
+            eduField = arrayOfJson[objWithIdIndex].education[i]
+            degree = eduField.degree
+            college = eduField.college
+            startDate = eduField.startDate
+            passOutYear = eduField.passOutYear
+            percentage = eduField.percentage
+            backlog = eduField.backlog
+            rowData = {
+                "degree": mainDiv.childNodes[i].childNodes[0].childNodes[1].value = degree,
+                "college": mainDiv.childNodes[i].childNodes[1].childNodes[1].value = college,
+                "startDate": mainDiv.childNodes[i].childNodes[2].childNodes[1].value = startDate,
+                "passOutYear": mainDiv.childNodes[i].childNodes[3].childNodes[1].value = passOutYear,
+                "percentage": mainDiv.childNodes[i].childNodes[4].childNodes[1].value = percentage,
+                "backlog": mainDiv.childNodes[i].childNodes[5].childNodes[1].value = backlog,
+            }
+            education.push(rowData)
+        }
+    }
+
+}

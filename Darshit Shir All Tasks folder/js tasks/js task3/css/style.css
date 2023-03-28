@@ -4,7 +4,7 @@ body {
   background-attachment: fixed;
 }
 
-.card {
+.card{
   background-color: transparent;
 }
 
@@ -31,11 +31,7 @@ label {
   padding: 0.5rem 3rem;
 }
 
-button,
-input,
-optgroup,
-select,
-textarea {
+button, input, optgroup, select, textarea {
   font-weight: normal;
 }
 
@@ -58,15 +54,6 @@ textarea {
   padding: 0.6rem 2.7rem;
 }
 
-.buttonEdit:hover {
-  padding: 0.58rem 2.8rem;
-}
-
-.buttonDelete:hover {
-  padding: 0.58rem 2.7rem;
-}
-
-
 .button::before {
   content: "";
   position: absolute;
@@ -78,7 +65,6 @@ textarea {
   position: relative;
   z-index: 1;
 }
-
 .button i {
   position: absolute;
   inset: 0;
@@ -125,11 +111,9 @@ textarea {
   0% {
     transform: translateX(0);
   }
-
   50% {
     transform: translateX(5px);
   }
-
   100% {
     transform: translateX(0);
   }
@@ -139,45 +123,16 @@ textarea {
   0% {
     box-shadow: #27272c;
   }
-
   50% {
     box-shadow: 0 0 25px var(--clr);
   }
-
   100% {
     box-shadow: #27272c;
   }
 }
 
-input:invalid,
-textarea:invalid {
-  border: 1.5px solid red !important;
+input:invalid, textarea:invalid{
+  border: 1.5px solid red;
   box-shadow: 0 0 10px red;
-}
 
-@media only screen and (max-width: 991px) {
-  .headerRow {
-    display: none;
-  }
-
-  .small-screen-label {
-    display: block !important;
-  }
-
-  .small-screen-border{
-    margin-top: 5% !important;
-    border: 1px solid white !important;
-  }
-
-  .small-screen-margin{
-    margin: 3% 0 2% 0 !important;
-  }
-
-}
-
-p {
-  width: 150px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }

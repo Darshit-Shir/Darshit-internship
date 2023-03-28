@@ -23,33 +23,30 @@
         <div class="col-lg-12 mt-4">
             <h1 class="text-center text-white">FORM</h1>
         </div>
-        <form id="formReset" onsubmit="return false" name="myForm">
+        <form onsubmit="return false" name="myForm">
             <div class="row mb-4 mt-5">
-                <div class="col-lg-6 col-sm-12 mb-4 mb-md-0 mb-lg-0">
+                <div class="col-lg-6 col-sm-12">
                     <div class="form-outline">
                         <label class="form-label fw-bold fs-5">First Name :</label>
-                        <input type="text" class="form-control" name="fName" placeholder="First Name"
-                            pattern="[a-zA-Z]+" value="Asfs"/>
+                        <input type="text" class="form-control" name="fName" placeholder="First Name" pattern="[a-zA-Z]+"/>
                     </div>
                 </div>
                 <div class="col-lg-6 col-sm-12">
                     <div class="form-outline">
-                        <label class="form-label fw-bold fs-5 mt-lg-0 mt-md-4 ">Last Name :</label>
-                        <input type="text" class="form-control" name="lName" placeholder="Last Name"
-                            pattern="[a-zA-Z]+" value="asdgdss"/>
+                        <label class="form-label fw-bold fs-5 mt-lg-0 mt-sm-4">Last Name :</label>
+                        <input type="text" class="form-control" name="lName" placeholder="Last Name" pattern="[a-zA-Z]+"/>
                     </div>
                 </div>
             </div>
             <div class="row ">
                 <div class="col-lg-6 col-sm-12 form-outline mb-4">
                     <label class="form-label fw-bold fs-5 ">Date Of Birth : </label>
-                    <input type="date" class="form-control" name="dateOfBirth" placeholder="mm/dd/yyyy"
-                        max="2002-12-12" />
+                    <input type="date" class="form-control" name="dateOfBirth" placeholder="mm/dd/yyyy" max="2002-12-12" />
                 </div>
                 <div class="col-lg-6 col-sm-12 form-outline mb-4">
                     <label class="form-label fw-bold fs-5 ">Graduation Year : </label>
                     <div id="yearPicker0">
-                        <input type="text" class="form-control" name="gradutionYear" placeholder="YYYY" value="2021">
+                        <input type="text" class="form-control" name="gradutionYear" placeholder="YYYY">
                     </div>
                 </div>
             </div>
@@ -59,7 +56,7 @@
                     <input type="email" class="form-control" name="email" placeholder="abc@gmail.com" />
                 </div>
                 <div class="col-lg-6 col-sm-12 form-outline mb-4">
-                    <label class="form-label fw-bold fs-5">Password :</label>
+                    <label class="form-label fw-bold fs-5 ">Password :</label>
                     <input type="password" class="form-control" name="password" placeholder="Password" />
                 </div>
             </div>
@@ -68,49 +65,35 @@
                 <textarea class="form-control" rows="4" name="address" placeholder="Address"></textarea>
             </div>
 
+
             <div class="d-flex mt-5 justify-content-between">
                 <div>
                     <h1 class="text-white">Education</h1>
                 </div>
                 <div>
-                    <button type="button" class="button buttonAdd" style="--clr:#39FF14"
+                    <button class="button buttonAdd" style="--clr:#39FF14"
                         onclick="addRow(false)"><span>Add</span><i></i></button>
                 </div>
             </div>
-
-            <div class="row headerRow mt-3">
-                <div class="col-lg-2 fw-bold fs-5 text-light">Degree</div>
-                <div class="col-lg-2 fw-bold fs-5 text-light">College</div>
-                <div class="col-lg-2 fw-bold fs-5 text-light">Start Date</div>
-                <div class="col-lg-2 fw-bold fs-5 text-light">Pass Out Year</div>
-                <div class="col-lg-1 fw-bold fs-5 text-light">Percentage</div>
-                <div class="col-lg-1 fw-bold fs-5 text-light">Backlog</div>
-                <div class="col-lg-1 fw-bold fs-5 text-light"></div>
+            <div class="card border-0 table-responsive">
+                <table class="table table-borderless table-responsive mt-4">
+                    <thead class="text-white fw-bold fs-5">
+                        <th>Degree</th>
+                        <th>College</th>
+                        <th>Start Date</th>
+                        <th>Pass Out Year</th>
+                        <th>Percentage (%)</th>
+                        <th>Backlog (if any)</th>
+                        <th></th>
+                    </thead>
+                    <tbody id="table"></tbody>
+                </table>
             </div>
-
-            <div id="mainDiv"></div>
-
-            <div class="text-center my-4">
+            <div class="text-center mt-3">
                 <button class="button buttonSubmit" style="--clr:#FF44CC"
                     onclick="onSubmit()"><span>Submit</span><i></i></button>
             </div>
         </form>
-
-        <div class="d-none" id="tableShow">
-            <table class="table table-responsive table-danger table-striped">
-                <thead class="fw-bold fs-5">
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Date Of Birth</th>
-                    <th>Graduation Year</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                    <th>Address</th>
-                    <th></th>
-                </thead>
-                <tbody id="table"></tbody>
-            </table>
-        </div>
     </div>
 
     <script src="./js/script.js"></script>
