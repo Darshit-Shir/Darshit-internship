@@ -1,0 +1,158 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Stanton Todd",
+      "dob": "Sun Jun 01 1975",
+      "email": "stantontodd@gynko.com",
+      "address": "728 Albee Square, Strong, Colorado, 3322",
+      "graduationYear": "1991-01",
+      "education": [
+        {
+          "degree": "M.TECH",
+          "college": "Sipna",
+          "startDate": "1973-06",
+          "passOutYear": "1993-05",
+          "percentage": 56,
+          "backlog": 5
+        },
+        {
+          "degree": "M.COM",
+          "college": "P.R.Pote",
+          "startDate": "2001-05",
+          "passOutYear": "2015-06",
+          "percentage": 68,
+          "backlog": 4
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Bobbie Walker",
+      "dob": "Sun Apr 13 1995",
+      "email": "bobbiewalker@gynko.com",
+      "address": "229 Homecrest Avenue, Moscow, Puerto Rico, 8420",
+      "graduationYear": "2012-08",
+      "education": [
+        {
+          "degree": "M.COM",
+          "college": "Sipna",
+          "startDate": "2011-06",
+          "passOutYear": "2014-06",
+          "percentage": 70,
+          "backlog": 5
+        },
+        {
+          "degree": "B.B.A",
+          "college": "I.I.T.",
+          "startDate": "2017-04",
+          "passOutYear": "2020-04",
+          "percentage": 72,
+          "backlog": 5
+        },
+        {
+          "degree": "B.COM",
+          "college": "P.R.Pote",
+          "startDate": "2020-10",
+          "passOutYear": "2022-09",
+          "percentage": 73,
+          "backlog": 5
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Susie Gay",
+      "dob": "Fri May 02 1975",
+      "email": "susiegay@gynko.com",
+      "address": "681 Lake Street, Gordon, Wisconsin, 5114",
+      "graduationYear": "2013-10",
+      "education": [
+        {
+          "degree": "M.E.",
+          "college": "G.T.U.",
+          "startDate": "2014-01",
+          "passOutYear": "2018-04",
+          "percentage": 81,
+          "backlog": 1
+        },
+        {
+          "degree": "M.E.",
+          "college": "V.M.V.",
+          "startDate": "2015-05",
+          "passOutYear": "2017-06",
+          "percentage": 92,
+          "backlog": 1
+        },
+        {
+          "degree": "M.E.",
+          "college": "Vidhya Bharti",
+          "startDate": "2010-01",
+          "passOutYear": "2014-05",
+          "percentage": 63,
+          "backlog": 4
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Abby Petty",
+      "dob": "Tue Jan 28 1975",
+      "email": "abbypetty@gynko.com",
+      "address": "611 Roder Avenue, Moraida, Maryland, 2163",
+      "graduationYear": "1995-12",
+      "education": [
+        {
+          "degree": "M.COM",
+          "college": "H.V.P.M.",
+          "startDate": "1983-03",
+          "passOutYear": "1988-05",
+          "percentage": 61,
+          "backlog": 4
+        },
+        {
+          "degree": "B.E.",
+          "college": "Vidhya Bharti",
+          "startDate": "2012-08",
+          "passOutYear": "2015-04",
+          "percentage": 52,
+          "backlog": 5
+        },
+        {
+          "degree": "B.B.A",
+          "college": "H.V.P.M.",
+          "startDate": "2011-12",
+          "passOutYear": "2016-05",
+          "percentage": 53,
+          "backlog": 5
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Meagan Macias",
+      "dob": "Fri Jul 16 1976",
+      "email": "meaganmacias@gynko.com",
+      "address": "590 Chester Street, Garnet, Missouri, 1550",
+      "graduationYear": "2014-03",
+      "education": [
+        {
+          "degree": "M.B.A",
+          "college": "H.V.P.M.",
+          "startDate": "1983-11",
+          "passOutYear": "1988-12",
+          "percentage": 71,
+          "backlog": 3
+        },
+        {
+          "degree": "M.E.",
+          "college": "Vidhya Bharti",
+          "startDate": "1991-02",
+          "passOutYear": "1995-02",
+          "percentage": 62,
+          "backlog": 3
+        }
+      ]
+    }
+  ]
+}
