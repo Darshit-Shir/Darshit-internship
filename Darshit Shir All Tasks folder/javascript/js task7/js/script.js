@@ -385,6 +385,7 @@ function submitBtn() {
         }
 
         else {
+            
             let edu = []
             let fName = document.getElementById("fName").value
             let lName = document.getElementById("lName").value
@@ -395,7 +396,7 @@ function submitBtn() {
             let editData = {
                 "firstName": fName,
                 "lastName": lName,
-                "dateOfBirth": (dateOfBirth).toString,
+                "dateOfBirth": (dateOfBirth).toString(),
                 "contactNumber": Number(contactNo),
                 "email": email,
                 "address": address,
