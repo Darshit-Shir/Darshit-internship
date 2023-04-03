@@ -14,14 +14,20 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             { data: 'firstName' },
             { data: 'lastName' },
-            { data: 'dateOfBirth' },
+            {
+                data: null,
+                mRender: (o) => {
+                return (new Date(o.dateOfBirth).getMonth() + 1).toString().padStart(2, "0") + '-' + new Date(o.dateOfBirth).getDate().toString().padStart(2, "0") + '-' + new Date(o.dateOfBirth).getFullYear().toString()
+                }
+            },
             { data: 'contactNumber' },
             { data: 'email' },
             { data: 'address' },
             {
                 "mData": null,
                 "bSortable": false,
-                "mRender": function (o) { return '<button class="btn btn-secondary" onclick="editBtn(this)" data-bs-toggle="modal" data-bs-target="#myModal" id= edit' + o._id + '>' + 'Edit' + '</button>' + '<button class="btn btn-danger ms-1" onclick="deleteBtn(this)" id= delete' + o._id + '>' + 'Delete' + '</button>'; }
+                "mRender": function (o) { return '<div class="d-flex"><button class="btn btn-secondary" onclick="editBtn(this)" data-bs-toggle="modal" data-bs-target="#myModal" id= edit' + o._id + '>' + '<i class="fa-solid fa-pen-to-square"></i>' + 
+                '</button>' + '<button class="btn btn-danger ms-1" onclick="deleteBtn(this)" id= delete' + o._id + '>' + '<i class="fa-sharp fa-solid fa-trash"></i>' + '</button></div>'; }
             }
         ],
     });
@@ -38,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
 
 // show education data on plus button
 function format(edu) {
@@ -64,7 +71,7 @@ function format(edu) {
             edu.Education[i].instituteName +
             '</td>' +
             '<td>' +
-            edu.Education[i].startDate +
+            (new Date(edu.Education[i].startDate).getMonth() + 1).toString().padStart(2, "0") + '-' + new Date(edu.Education[i].startDate).getDate().toString().padStart(2, "0") + '-' + new Date(edu.Education[i].startDate).getFullYear().toString() +
             '</td>' +
             '<td>' +
             edu.Education[i].passoutYear +
@@ -84,8 +91,10 @@ function format(edu) {
     );
 }
 
+let defaultcount = 0
 var isDefault
-var btnClick
+var btnClick = 'default'
+var objID
 var mainDiv = document.getElementById("mainDiv")
 
 function addBtnTable() {
@@ -186,7 +195,10 @@ function addRowEducaion(isDefault) {
     let btn = document.createElement("button")
     btn.setAttribute("onclick", "removeRow(this)")
     btn.classList = "btn btn-danger mt-2 px-4 small-screen-margin"
-    if (isDefault) {
+
+    // console.log(" sda " +btnClick);
+
+    if (isDefault && btnClick == 'addClick') {
         removeButtonDiv.classList.add("d-none")
         btn.setAttribute("disabled", "true")
         btn.style = "cursor:context-menu"
@@ -204,11 +216,20 @@ function addRowEducaion(isDefault) {
     educationDiv.appendChild(removeButtonDiv)
 
     mainDiv.appendChild(educationDiv)
+
+    defaultcount++
+    
 }
 
 // remove Row function for education feild
 function removeRow(remove) {
-    remove.parentElement.parentElement.remove();
+    if(defaultcount<=2){
+        alert("There must be at least two rows")
+    }
+    else {
+        remove.parentElement.parentElement.remove();
+        defaultcount--
+    }
 }
 
 // validation function
@@ -379,13 +400,12 @@ function submitBtn() {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data)
-            }).then(res => res.json())
-                .then(res => console.log(res));
+            })
             $("#myModal").modal("hide");
+            $('#table').DataTable().ajax.reload()
         }
 
         else {
-            
             let edu = []
             let fName = document.getElementById("fName").value
             let lName = document.getElementById("lName").value
@@ -423,9 +443,13 @@ function submitBtn() {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(editData)
-            }).then(res => res.json())
-                .then(res => console.log(res));
+                
+            })
+
             $("#myModal").modal("hide");
+            setTimeout(() => {
+                $('#table').DataTable().ajax.reload()
+            }, 200);
         }
 
         $("#fName").removeAttr("required", "true")
@@ -483,14 +507,14 @@ function deleteBtn(del) {
 
             method: 'DELETE',
         })
-        $('#table').DataTable().ajax.reload()
-    }
-    else {
+        setTimeout(() => {
+            $('#table').DataTable().ajax.reload()
+        }, 200);
     }
 }
 
-var objID
 function editBtn(e) {
+    defaultcount = 2
     objID = (e.id).slice(4)
     btnClick = "editClick";
 
