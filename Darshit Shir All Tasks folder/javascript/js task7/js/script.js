@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
             {
                 data: null,
                 mRender: (o) => {
-                return (new Date(o.dateOfBirth).getMonth() + 1).toString().padStart(2, "0") + '-' + new Date(o.dateOfBirth).getDate().toString().padStart(2, "0") + '-' + new Date(o.dateOfBirth).getFullYear().toString()
+                    return (new Date(o.dateOfBirth).getMonth() + 1).toString().padStart(2, "0") + '-' + new Date(o.dateOfBirth).getDate().toString().padStart(2, "0") + '-' + new Date(o.dateOfBirth).getFullYear().toString()
                 }
             },
             { data: 'contactNumber' },
@@ -26,8 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
             {
                 "mData": null,
                 "bSortable": false,
-                "mRender": function (o) { return '<div class="d-flex"><button class="btn btn-secondary" onclick="editBtn(this)" data-bs-toggle="modal" data-bs-target="#myModal" id= edit' + o._id + '>' + '<i class="fa-solid fa-pen-to-square"></i>' + 
-                '</button>' + '<button class="btn btn-danger ms-1" onclick="deleteBtn(this)" id= delete' + o._id + '>' + '<i class="fa-sharp fa-solid fa-trash"></i>' + '</button></div>'; }
+                "mRender": function (o) {
+                    return '<div class="d-flex"><button class="btn btn-secondary" onclick="editBtn(this)" data-bs-toggle="modal" data-bs-target="#myModal" id= edit' + o._id + '>' + '<i class="fa-solid fa-pen-to-square"></i>' +
+                        '</button>' + '<button class="btn btn-danger ms-1" onclick="deleteBtn(this)" id= delete' + o._id + '>' + '<i class="fa-sharp fa-solid fa-trash"></i>' + '</button></div>';
+                }
             }
         ],
     });
@@ -91,7 +93,6 @@ function format(edu) {
     );
 }
 
-let defaultcount = 0
 var isDefault
 var btnClick = 'default'
 var objID
@@ -99,6 +100,17 @@ var mainDiv = document.getElementById("mainDiv")
 
 function addBtnTable() {
     btnClick = "addClick"
+    $("#fName").removeAttr("required", "true")
+    $("#lName").removeAttr("required", "true")
+    $("#dateOfBirth").removeAttr("required", "true")
+    $("#contactNo").removeAttr("required", "true")
+    $("#email").removeAttr("required", "true")
+    $("#address").removeAttr("required", "true")
+    form.reset()
+    mainDiv.innerHTML = ""
+    for (i = 0; i < 2; i++) {
+        addRowEducaion(true)
+    }
 }
 
 // for loop for default two rows of education field
@@ -196,9 +208,7 @@ function addRowEducaion(isDefault) {
     btn.setAttribute("onclick", "removeRow(this)")
     btn.classList = "btn btn-danger mt-2 px-4 small-screen-margin"
 
-    // console.log(" sda " +btnClick);
-
-    if (isDefault && btnClick == 'addClick') {
+    if (isDefault) {
         removeButtonDiv.classList.add("d-none")
         btn.setAttribute("disabled", "true")
         btn.style = "cursor:context-menu"
@@ -217,19 +227,12 @@ function addRowEducaion(isDefault) {
 
     mainDiv.appendChild(educationDiv)
 
-    defaultcount++
-    
+
 }
 
 // remove Row function for education feild
 function removeRow(remove) {
-    if(defaultcount<=2){
-        alert("There must be at least two rows")
-    }
-    else {
-        remove.parentElement.parentElement.remove();
-        defaultcount--
-    }
+    remove.parentElement.parentElement.remove();
 }
 
 // validation function
@@ -443,7 +446,7 @@ function submitBtn() {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(editData)
-                
+
             })
 
             $("#myModal").modal("hide");
@@ -514,9 +517,12 @@ function deleteBtn(del) {
 }
 
 function editBtn(e) {
-    defaultcount = 2
     objID = (e.id).slice(4)
     btnClick = "editClick";
+    mainDiv.innerHTML = ""
+    for (i = 0; i < 2; i++) {
+        addRowEducaion(true)
+    }
 
     let p = fetch("http://192.168.3.51:1100/api/getUserById/" + objID)
 
@@ -532,9 +538,108 @@ function editBtn(e) {
         $("#email").val(object.email)
         $("#address").val(object.address)
 
-        // for loop for education fields default row
+        // for loop for education row
         for (k = 0; k < object.Education.length - 2; k++) {
-            addRowEducaion(true)
+            let educationDiv = document.createElement("div")
+            educationDiv.classList = "row mt-2 small-screen-border pb-2"
+
+            // degree 
+            let degreeDiv = document.createElement("div")
+            degreeDiv.classList = "col-lg-2"
+            let degreeLabel = document.createElement("label")
+            degreeLabel.innerHTML = "Degree"
+            degreeLabel.classList = "form-label fw-bold fs-5 mt-2 d-none small-screen-label"
+            let degree = document.createElement("input")
+            degree.setAttribute("type", "text")
+            degree.classList = "form-control mt-2"
+            degree.setAttribute("placeholder", "Degree")
+            degreeDiv.appendChild(degreeLabel)
+            degreeDiv.appendChild(degree)
+
+            // institute
+            let instituteDiv = document.createElement("div")
+            instituteDiv.classList = "col-lg-2"
+            let instituteLabel = document.createElement("label")
+            instituteLabel.innerHTML = "institute"
+            instituteLabel.classList = "form-label fw-bold fs-5 mt-2 d-none small-screen-label"
+            let institute = document.createElement("input")
+            institute.setAttribute("type", "text")
+            institute.classList = "form-control mt-2"
+            institute.setAttribute("placeholder", "institute")
+            instituteDiv.appendChild(instituteLabel)
+            instituteDiv.appendChild(institute)
+
+            // start date
+            let startDateDiv = document.createElement("div")
+            startDateDiv.classList = "col-lg-2"
+            let startDateLabel = document.createElement("label")
+            startDateLabel.innerHTML = "Start Date"
+            startDateLabel.classList = "form-label fw-bold fs-5 mt-2 d-none small-screen-label"
+            let startDate = document.createElement("input")
+            startDate.setAttribute("type", "date")
+            startDate.classList = "form-control mt-2"
+            startDateDiv.appendChild(startDateLabel)
+            startDateDiv.appendChild(startDate)
+
+            // pass out year
+            let passOutYearDiv = document.createElement("div")
+            passOutYearDiv.classList = "col-lg-2"
+            let passOutYearLabel = document.createElement("label")
+            passOutYearLabel.innerHTML = "Pass Out Year"
+            passOutYearLabel.classList = "form-label fw-bold fs-5 mt-2 d-none small-screen-label"
+            let passOutYear = document.createElement("input")
+            passOutYear.setAttribute("type", "month")
+            passOutYear.classList = "form-control mt-2"
+            passOutYearDiv.appendChild(passOutYearLabel)
+            passOutYearDiv.appendChild(passOutYear)
+
+            // percentage
+            let percentageDiv = document.createElement("div")
+            percentageDiv.classList = "col-lg-1"
+            let percentageLabel = document.createElement("label")
+            percentageLabel.innerHTML = "Percentage"
+            percentageLabel.classList = "form-label fw-bold fs-5 mt-2 d-none small-screen-label"
+            let percentage = document.createElement("input")
+            percentage.setAttribute("type", "text")
+            percentage.setAttribute("placeholder", "00")
+            percentage.setAttribute("pattern", "(^100(\.0{1,2})?$)|(^([1-9]([0-9])?|0)(\.[0-9]{1,2})?$)")
+            percentage.classList = "form-control mt-2"
+            percentageDiv.appendChild(percentageLabel)
+            percentageDiv.appendChild(percentage)
+
+            // backlogs
+            let backlogDiv = document.createElement("div")
+            backlogDiv.classList = "col-lg-1"
+            let backlogLabel = document.createElement("label")
+            backlogLabel.innerHTML = "Backlog"
+            backlogLabel.classList = "form-label fw-bold fs-5 mt-2 d-none small-screen-label"
+            let backlog = document.createElement("input")
+            backlog.setAttribute("type", "text")
+            backlog.setAttribute("placeholder", "0")
+            backlog.setAttribute("pattern", "(?:[0-9]|[0-9][1-5]|10)")
+            backlog.classList = "form-control mt-2"
+            backlogDiv.appendChild(backlogLabel)
+            backlogDiv.appendChild(backlog)
+
+            // remove button
+            let removeButtonDiv = document.createElement("div")
+            removeButtonDiv.classList = "col-lg-1"
+            let btn = document.createElement("button")
+            btn.setAttribute("onclick", "removeRow(this)")
+            btn.classList = "btn btn-danger mt-2 px-4 small-screen-margin"
+            btn.innerHTML = "REMOVE"
+            removeButtonDiv.appendChild(btn)
+
+
+            educationDiv.appendChild(degreeDiv)
+            educationDiv.appendChild(instituteDiv)
+            educationDiv.appendChild(startDateDiv)
+            educationDiv.appendChild(passOutYearDiv)
+            educationDiv.appendChild(percentageDiv)
+            educationDiv.appendChild(backlogDiv)
+            educationDiv.appendChild(removeButtonDiv)
+
+            mainDiv.appendChild(educationDiv)
         }
 
         for (i = 0; i < mainDiv.childNodes.length; i++) {
