@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "MoreInfo";
+
+}     
+        <h2>MoreInfo</h2>
+
+        <table class="table table-striped table-info">
+            <thead>
+                <tr>
+                    <th>
+                        User Name
+                    </th>
+                    <th>
+                        Mobile number
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach(var user in ViewBag.user)
+                {
+                    <tr>
+                        <td>
+                            @user.Name
+                        </td>
+                        <td>
+                            @user.mobileNo
+                        </td>
+                    </tr>
+                }
+        </tbody>
+        </table>
+

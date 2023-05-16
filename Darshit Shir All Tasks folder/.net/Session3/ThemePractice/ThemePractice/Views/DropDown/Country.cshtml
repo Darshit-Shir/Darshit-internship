@@ -1,0 +1,33 @@
+﻿@model ThemePractice.Models.DropDownModel
+
+@{
+    Layout = null;
+}
+
+@if (ViewBag.CountryList != null)
+{
+    @Html.DropDownListFor(m => m.CountryId, ViewBag.CountryList as SelectList, "---Select Country Name---", new { @class = "form-control" })
+}
+@Html.DropDownListFor(m => m.StateId, new SelectList(""), "---Select State---", new { @class = "form-control" })
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#CountryId").change(function () {
+            var id = $(this).val();
+            debugger
+            $.ajax({
+                type: "post",
+                url: "/DropDown/GetStates?id=" + id,
+                contentType: "html",
+                success: function (response) {
+                    debugger
+                    $("#StateId").empty();
+                    $("#StateId").append(response);
+                }
+            })
+        })
+    })
+</script>

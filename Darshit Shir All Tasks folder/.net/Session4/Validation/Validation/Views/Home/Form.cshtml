@@ -1,0 +1,31 @@
+﻿<h2>Form</h2>
+<html>
+<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+    <body>
+        <div>
+            @using (Html.BeginForm("SubmitData", "Home", FormMethod.Post))
+            {
+                <label>First Name:</label>
+                @Html.TextBox("FirstName","",new { @class = "mt-2" })<br />
+                @Html.ValidationMessage("FirstName")
+                <br /><br />
+                <label>Last Name:</label>
+                @Html.TextBox("LastName")<br />
+                @Html.ValidationMessage("LastName")<br /><br />
+                <label>Email:</label>
+                @Html.TextBox("Email")<br />
+                @Html.ValidationMessage("Email")<br /><br />
+                <label>Age:</label>
+                @Html.Editor("Age")<br />
+                @Html.ValidationMessage("Age")<br /><br />
+
+                <input type="submit" value="Submit" />
+
+            }
+        </div>
+    </body>
+
+</html>
+

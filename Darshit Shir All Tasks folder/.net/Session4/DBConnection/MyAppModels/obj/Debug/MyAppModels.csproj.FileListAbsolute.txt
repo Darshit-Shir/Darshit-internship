@@ -1,0 +1,5 @@
+C:\Users\sit378\source\repos\Session4\DBConnection\MyAppModels\bin\Debug\MyAppModels.dll
+C:\Users\sit378\source\repos\Session4\DBConnection\MyAppModels\bin\Debug\MyAppModels.pdb
+C:\Users\sit378\source\repos\Session4\DBConnection\MyAppModels\obj\Debug\MyAppModels.csproj.CoreCompileInputs.cache
+C:\Users\sit378\source\repos\Session4\DBConnection\MyAppModels\obj\Debug\MyAppModels.dll
+C:\Users\sit378\source\repos\Session4\DBConnection\MyAppModels\obj\Debug\MyAppModels.pdb

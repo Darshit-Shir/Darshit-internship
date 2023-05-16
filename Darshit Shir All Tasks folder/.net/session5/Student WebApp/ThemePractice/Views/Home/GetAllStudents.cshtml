@@ -1,0 +1,96 @@
+﻿@model List<ThemePractice.DBConnection.SP_GET_ALL_USER_Result>
+
+@{
+    ViewBag.Title = "GetAllStudents";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" language="javascript">
+    function DisableBackButton() {
+        window.history.forward()
+    }
+    DisableBackButton();
+    window.onload = DisableBackButton;
+    window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton() }
+    window.onunload = function () { void (0) }
+</script>
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between">
+        <h2 class="text-dark">Student Record</h2>
+
+        <button class="btn bg-success">
+            @Html.ActionLink("Add Student", "Form","Home", new { @class = "text-decoration-none text-dark" })
+        </button>
+    </div>
+    <div class="mt-4">
+        <table class="table table-striped">
+            <tr class="bg-dark text-light">
+                <th>
+                    FirstName
+                </th>
+                <th>
+                    LastName
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Address
+                </th>
+                <th>
+                    MobileNo
+                </th>
+                <th>
+                    Country
+                </th>
+                <th>
+                    State
+                </th>
+                <th>
+                    City
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StateName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CityName)
+            </td>
+            <td>
+                <button class="btn bg-info">@Html.ActionLink("Edit", "EditStudent", new { id = item.Id }, new { @class = "text-decoration-none text-dark" })</button>
+                <button class="btn bg-danger">@Html.ActionLink("Delete","DeleteStudent", new { id = item.Id },
+                                    new { onclick = "return confirm('Do you really want to delete this?')", @class = "text-decoration-none text-dark" })
+                </button>
+            </td>
+        </tr>
+            }
+
+        </table>
+    </div>
+</div>

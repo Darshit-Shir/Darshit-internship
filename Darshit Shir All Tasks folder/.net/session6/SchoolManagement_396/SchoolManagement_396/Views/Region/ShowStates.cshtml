@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SchoolManagement_396.Models.Contex.States>
+
+@{
+    ViewBag.Title = "ShowStates";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="d-flex justify-content-center mt-3">
+    <button class="btn bg-success">
+        @Html.ActionLink("Add State", "AddStates", "Region", new { @class = "text-decoration-none text-dark" })
+    </button>
+</div>
+
+<table class="table table-striped mt-3">
+    <tr class="bg-dark text-light">
+        <th>
+            Country
+        </th>
+        <th>
+            State
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country.CountryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StateName)
+        </td>
+        <td>
+            <button class="btn bg-info">@Html.ActionLink("Edit", "EditState", new { id = item.SId }, new { @class = "text-decoration-none text-dark" })</button>
+            <button class="btn bg-danger">@Html.ActionLink("Delete", "DeleteState", new { id = item.SId },
+                                    new { onclick = "return confirm('Do you really want to delete this?')", @class = "text-decoration-none text-dark" })
+            </button>
+        </td>
+    </tr>
+}
+
+</table>

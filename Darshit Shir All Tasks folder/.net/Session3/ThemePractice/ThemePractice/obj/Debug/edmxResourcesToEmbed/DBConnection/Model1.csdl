@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DarshitModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="StateId" Type="Int32" />
+    <NavigationProperty Name="Country" Relationship="Self.FK__City__CountryId__2B3F6F97" FromRole="City" ToRole="Country" />
+    <NavigationProperty Name="States" Relationship="Self.FK__City__StateId__2C3393D0" FromRole="City" ToRole="States" />
+    <NavigationProperty Name="UserTable" Relationship="Self.FK__UserTable__CityI__33D4B598" FromRole="City" ToRole="UserTable" />
+    <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Country1" Relationship="DarshitModel.FK__City__CountryId__2B3F6F971" FromRole="City" ToRole="Country" />
+    <NavigationProperty Name="States1" Relationship="DarshitModel.FK__City__StateId__2C3393D01" FromRole="City" ToRole="States" />
+    <NavigationProperty Name="UserTable1" Relationship="DarshitModel.FK__UserTable__CityI__33D4B5981" FromRole="City" ToRole="UserTable" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="CId" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="City" Relationship="Self.FK__City__CountryId__2B3F6F97" FromRole="Country" ToRole="City" />
+    <NavigationProperty Name="States" Relationship="Self.FK__States__CountryI__286302EC" FromRole="Country" ToRole="States" />
+    <NavigationProperty Name="UserTable" Relationship="Self.FK__UserTable__Count__31EC6D26" FromRole="Country" ToRole="UserTable" />
+    <Property Name="CId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="City1" Relationship="DarshitModel.FK__City__CountryId__2B3F6F971" FromRole="Country" ToRole="City" />
+    <NavigationProperty Name="States1" Relationship="DarshitModel.FK__States__CountryI__286302EC1" FromRole="Country" ToRole="States" />
+    <NavigationProperty Name="UserTable1" Relationship="DarshitModel.FK__UserTable__Count__31EC6D261" FromRole="Country" ToRole="UserTable" />
+  </EntityType>
+  <EntityType Name="States">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="SId" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CountryId" Type="Int32" />
+    <NavigationProperty Name="City" Relationship="Self.FK__City__StateId__2C3393D0" FromRole="States" ToRole="City" />
+    <NavigationProperty Name="Country" Relationship="Self.FK__States__CountryI__286302EC" FromRole="States" ToRole="Country" />
+    <NavigationProperty Name="UserTable" Relationship="Self.FK__UserTable__State__32E0915F" FromRole="States" ToRole="UserTable" />
+    <Property Name="SId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="City1" Relationship="DarshitModel.FK__City__StateId__2C3393D01" FromRole="States" ToRole="City" />
+    <NavigationProperty Name="Country1" Relationship="DarshitModel.FK__States__CountryI__286302EC1" FromRole="States" ToRole="Country" />
+    <NavigationProperty Name="UserTable1" Relationship="DarshitModel.FK__UserTable__State__32E0915F1" FromRole="States" ToRole="UserTable" />
+  </EntityType>
+  <EntityType Name="UserTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UserTypeId" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="StateId" Type="Int32" />
+    <Property Name="CityId" Type="Int32" />
+    <NavigationProperty Name="City" Relationship="Self.FK__UserTable__CityI__33D4B598" FromRole="UserTable" ToRole="City" />
+    <NavigationProperty Name="Country" Relationship="Self.FK__UserTable__Count__31EC6D26" FromRole="UserTable" ToRole="Country" />
+    <NavigationProperty Name="States" Relationship="Self.FK__UserTable__State__32E0915F" FromRole="UserTable" ToRole="States" />
+    <NavigationProperty Name="City1" Relationship="DarshitModel.FK__UserTable__CityI__33D4B5981" FromRole="UserTable" ToRole="City" />
+    <NavigationProperty Name="Country1" Relationship="DarshitModel.FK__UserTable__Count__31EC6D261" FromRole="UserTable" ToRole="Country" />
+    <NavigationProperty Name="States1" Relationship="DarshitModel.FK__UserTable__State__32E0915F1" FromRole="UserTable" ToRole="States" />
+  </EntityType>
+  <Association Name="FK__City__CountryId__2B3F6F97">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__City__StateId__2C3393D0">
+    <End Role="States" Type="Self.States" Multiplicity="0..1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserTable__CityI__33D4B598">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="UserTable" Type="Self.UserTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UserTable">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__States__CountryI__286302EC">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="States" Type="Self.States" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="States">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserTable__Count__31EC6D26">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="UserTable" Type="Self.UserTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UserTable">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserTable__State__32E0915F">
+    <End Role="States" Type="Self.States" Multiplicity="0..1" />
+    <End Role="UserTable" Type="Self.UserTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UserTable">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DarshitEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="City" EntityType="Self.City" />
+    <EntitySet Name="Country" EntityType="Self.Country" />
+    <EntitySet Name="States" EntityType="Self.States" />
+    <EntitySet Name="UserTable" EntityType="Self.UserTable" />
+    <AssociationSet Name="FK__City__CountryId__2B3F6F97" Association="Self.FK__City__CountryId__2B3F6F97">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK__City__StateId__2C3393D0" Association="Self.FK__City__StateId__2C3393D0">
+      <End Role="States" EntitySet="States" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserTable__CityI__33D4B598" Association="Self.FK__UserTable__CityI__33D4B598">
+      <End Role="City" EntitySet="City" />
+      <End Role="UserTable" EntitySet="UserTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__States__CountryI__286302EC" Association="Self.FK__States__CountryI__286302EC">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="States" EntitySet="States" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserTable__Count__31EC6D26" Association="Self.FK__UserTable__Count__31EC6D26">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="UserTable" EntitySet="UserTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserTable__State__32E0915F" Association="Self.FK__UserTable__State__32E0915F">
+      <End Role="States" EntitySet="States" />
+      <End Role="UserTable" EntitySet="UserTable" />
+    </AssociationSet>
+    <EntitySet Name="credential" EntityType="DarshitModel.credential" />
+    <AssociationSet Name="FK__City__CountryId__2B3F6F971" Association="DarshitModel.FK__City__CountryId__2B3F6F971">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK__City__StateId__2C3393D01" Association="DarshitModel.FK__City__StateId__2C3393D01">
+      <End Role="States" EntitySet="States" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserTable__CityI__33D4B5981" Association="DarshitModel.FK__UserTable__CityI__33D4B5981">
+      <End Role="City" EntitySet="City" />
+      <End Role="UserTable" EntitySet="UserTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__States__CountryI__286302EC1" Association="DarshitModel.FK__States__CountryI__286302EC1">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="States" EntitySet="States" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserTable__Count__31EC6D261" Association="DarshitModel.FK__UserTable__Count__31EC6D261">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="UserTable" EntitySet="UserTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserTable__State__32E0915F1" Association="DarshitModel.FK__UserTable__State__32E0915F1">
+      <End Role="States" EntitySet="States" />
+      <End Role="UserTable" EntitySet="UserTable" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="credential">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="lastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__City__CountryId__2B3F6F971">
+    <End Type="DarshitModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="DarshitModel.City" Role="City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CId" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__City__StateId__2C3393D01">
+    <End Type="DarshitModel.States" Role="States" Multiplicity="0..1" />
+    <End Type="DarshitModel.City" Role="City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="SId" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserTable__CityI__33D4B5981">
+    <End Type="DarshitModel.City" Role="City" Multiplicity="0..1" />
+    <End Type="DarshitModel.UserTable" Role="UserTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="UserTable">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__States__CountryI__286302EC1">
+    <End Type="DarshitModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="DarshitModel.States" Role="States" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CId" />
+      </Principal>
+      <Dependent Role="States">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserTable__Count__31EC6D261">
+    <End Type="DarshitModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="DarshitModel.UserTable" Role="UserTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CId" />
+      </Principal>
+      <Dependent Role="UserTable">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserTable__State__32E0915F1">
+    <End Type="DarshitModel.States" Role="States" Multiplicity="0..1" />
+    <End Type="DarshitModel.UserTable" Role="UserTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="SId" />
+      </Principal>
+      <Dependent Role="UserTable">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

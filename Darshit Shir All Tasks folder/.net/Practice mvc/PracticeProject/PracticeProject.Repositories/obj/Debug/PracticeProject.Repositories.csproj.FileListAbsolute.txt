@@ -1,0 +1,17 @@
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Repositories\bin\Debug\PracticeProject.Repositories.dll.config
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Repositories\bin\Debug\PracticeProject.Repositories.dll
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Repositories\bin\Debug\PracticeProject.Repositories.pdb
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Repositories\bin\Debug\EntityFramework.dll
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Repositories\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Repositories\bin\Debug\PracticeProject.Helpers.dll
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Repositories\bin\Debug\PracticeProject.Models.dll
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Repositories\bin\Debug\PracticeProject.Helpers.pdb
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Repositories\bin\Debug\PracticeProject.Models.pdb
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Repositories\bin\Debug\PracticeProject.Models.dll.config
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Repositories\bin\Debug\EntityFramework.xml
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Repositories\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Repositories\obj\Debug\PracticeProject.Repositories.csproj.AssemblyReference.cache
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Repositories\obj\Debug\PracticeProject.Repositories.csproj.CoreCompileInputs.cache
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Repositories\obj\Debug\PracticeProject.Repositories.csproj.CopyComplete
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Repositories\obj\Debug\PracticeProject.Repositories.dll
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Repositories\obj\Debug\PracticeProject.Repositories.pdb

@@ -1,0 +1,12 @@
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Helpers\bin\Debug\PracticeProject.Helpers.dll
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Helpers\bin\Debug\PracticeProject.Helpers.pdb
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Helpers\bin\Debug\PracticeProject.Models.dll
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Helpers\bin\Debug\EntityFramework.dll
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Helpers\bin\Debug\PracticeProject.Models.pdb
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Helpers\bin\Debug\PracticeProject.Models.dll.config
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Helpers\bin\Debug\EntityFramework.xml
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Helpers\obj\Debug\PracticeProject.Helpers.csproj.AssemblyReference.cache
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Helpers\obj\Debug\PracticeProject.Helpers.csproj.CoreCompileInputs.cache
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Helpers\obj\Debug\PracticeProject.Helpers.csproj.CopyComplete
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Helpers\obj\Debug\PracticeProject.Helpers.dll
+C:\Users\sit378\source\repos\Practice mvc\PracticeProject\PracticeProject.Helpers\obj\Debug\PracticeProject.Helpers.pdb

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<SchoolManagement_396.Models.Contex.subject>
+
+@{
+    ViewBag.Title = "ShowSubjects";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex justify-content-center mt-3">
+    <button class="btn bg-success">
+        @Html.ActionLink("Add Subject", "AddSubject", "Subject", new { @class = "text-decoration-none text-dark" })
+    </button>
+</div>
+
+<table class="table table-striped mt-3">
+    <tr class="bg-dark text-light">
+        <th>
+            Subject
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubjectName)
+        </td>
+        <td>
+            <button class="btn bg-info">@Html.ActionLink("Edit", "EditSubject", new { id = item.SubjectID }, new { @class = "text-decoration-none text-dark" })</button>
+            <button class="btn bg-danger">@Html.ActionLink("Delete", "DeleteSubject", new { id = item.SubjectID },
+                                    new { onclick = "return confirm('Do you really want to delete this?')", @class = "text-decoration-none text-dark" })
+            </button>
+        </td>
+    </tr>
+}
+
+</table>

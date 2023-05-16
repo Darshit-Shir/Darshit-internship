@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SchoolManagement_396.Models.Contex.City>
+
+@{
+    ViewBag.Title = "ShowCity";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex justify-content-center mt-3">
+    <button class="btn bg-success">
+        @Html.ActionLink("Add City", "AddCity", "Region", new { @class = "text-decoration-none text-dark" })
+    </button>
+</div>
+
+<table class="table table-striped mt-3">
+    <tr class="bg-dark text-light">
+        <th>
+            Country
+        </th>
+        <th>
+            State
+        </th>
+        <th>
+            City
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country.CountryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.States.StateName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CityName)
+        </td>
+        <td>
+            <button class="btn bg-info">@Html.ActionLink("Edit", "EditCity", new { id = item.CityId }, new { @class = "text-decoration-none text-dark" })</button>
+            <button class="btn bg-danger">@Html.ActionLink("Delete", "DeleteCity", new { id = item.CityId },
+                                    new { onclick = "return confirm('Do you really want to delete this?')", @class = "text-decoration-none text-dark" })
+            </button>
+        </td>
+    </tr>
+}
+
+</table>
+
+

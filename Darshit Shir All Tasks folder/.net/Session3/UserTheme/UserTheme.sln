@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33130.400
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserTheme", "UserTheme\UserTheme.csproj", "{AA863565-6D37-4DBE-9F53-D9F219659FAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA863565-6D37-4DBE-9F53-D9F219659FAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA863565-6D37-4DBE-9F53-D9F219659FAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA863565-6D37-4DBE-9F53-D9F219659FAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA863565-6D37-4DBE-9F53-D9F219659FAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E48E1D0F-12CD-4C2B-AAD2-1828816D83E5}
+	EndGlobalSection
+EndGlobal

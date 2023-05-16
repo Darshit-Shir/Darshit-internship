@@ -1,0 +1,14 @@
+C:\Users\sit378\source\repos\Session4\DBConnection\MyAppDb\bin\Debug\MyAppDb.dll
+C:\Users\sit378\source\repos\Session4\DBConnection\MyAppDb\bin\Debug\MyAppDb.pdb
+C:\Users\sit378\source\repos\Session4\DBConnection\MyAppDb\obj\Debug\MyAppDb.csproj.AssemblyReference.cache
+C:\Users\sit378\source\repos\Session4\DBConnection\MyAppDb\obj\Debug\MyAppDb.csproj.CoreCompileInputs.cache
+C:\Users\sit378\source\repos\Session4\DBConnection\MyAppDb\obj\Debug\MyAppDb.dll
+C:\Users\sit378\source\repos\Session4\DBConnection\MyAppDb\obj\Debug\MyAppDb.pdb
+C:\Users\sit378\source\repos\Session4\DBConnection\MyAppDb\bin\Debug\MyAppDb.dll.config
+C:\Users\sit378\source\repos\Session4\DBConnection\MyAppDb\bin\Debug\EntityFramework.dll
+C:\Users\sit378\source\repos\Session4\DBConnection\MyAppDb\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\sit378\source\repos\Session4\DBConnection\MyAppDb\bin\Debug\MyAppModels.dll
+C:\Users\sit378\source\repos\Session4\DBConnection\MyAppDb\bin\Debug\MyAppModels.pdb
+C:\Users\sit378\source\repos\Session4\DBConnection\MyAppDb\bin\Debug\EntityFramework.xml
+C:\Users\sit378\source\repos\Session4\DBConnection\MyAppDb\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\sit378\source\repos\Session4\DBConnection\MyAppDb\obj\Debug\MyAppDb.csproj.CopyComplete

@@ -1,0 +1,134 @@
+﻿@model ThemePractice.Models.StudentModel
+
+@{
+    ViewBag.Title = "EditStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript" language="javascript">
+    function DisableBackButton() {
+        window.history.forward()
+    }
+    DisableBackButton();
+    window.onload = DisableBackButton;
+    window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton() }
+    window.onunload = function () { void (0) }
+</script>
+<div class="text-center">
+    <h2>Form</h2>
+</div>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal container-fluid">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="row form-group">
+            <div class="col-lg-6 col-sm-12">
+                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "First Name" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Last Name" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-lg-6 col-sm-12">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                @Html.LabelFor(model => model.MobileNo, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @class = "form-control", placeholder = "Mobile No." } })
+                @Html.ValidationMessageFor(model => model.MobileNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-12">
+                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", placeholder = "Adress" } })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-12">
+                @Html.LabelFor(model => model.CId, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(m => m.CId, ViewBag.CountryList as SelectList, "--- Select Country Name ---", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-12">
+                @Html.LabelFor(model => model.SId, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(m => m.SId, ViewBag.StateList as SelectList, "--- Select State Name ---", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-12">
+                @Html.LabelFor(model => model.CityId, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(m => m.CityId, ViewBag.CityList as SelectList, "--- Select City Name ---", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CityId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group text-center d-flex justify-content-center">
+            <div class="col-md-offset-2">
+                <input type="submit" value="Update" class="btn btn-success" />
+            </div>
+            <div>
+                <a class="btn btn-danger" style="margin-left: 8%" href="~/Home/GetAllStudents">Cancel</a>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#CId").change(function () {
+            var countryId = $(this).val();
+            $.ajax({
+                type: "post",
+                url: "/Home/GetStatesList?CId=" + countryId,
+                contentType: "html",
+                success: function (response) {
+                    $("#SId").empty();
+                    $("#CityId").empty();
+                    $("#SId").append(response);
+                }
+            })
+        })
+
+        $("#SId").change(function () {
+            var StateId = $(this).val();
+            $.ajax({
+                type: "post",
+                url: "/Home/GetCityList?SId=" + StateId,
+                contentType: "html",
+                success: function (response) {
+                    $("#CityId").empty();
+                    $("#CityId").append(response);
+                }
+            })
+        })
+    })
+</script>

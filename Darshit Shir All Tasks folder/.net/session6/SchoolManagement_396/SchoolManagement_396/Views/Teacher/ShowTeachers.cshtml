@@ -1,0 +1,72 @@
+﻿@model IEnumerable<SchoolManagement_396.Models.Contex.Sp_GetTeacherDetails_Result>
+
+@{
+    ViewBag.Title = "ShowTeachers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex justify-content-center mt-3">
+    <button class="btn bg-success">
+        @Html.ActionLink("Add Teacher", "AddTeacher", "Teacher", new { @class = "text-decoration-none text-dark" })
+    </button>
+</div>
+
+<table class="table table-striped mt-3">
+    <tr class="bg-dark text-light">
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Mobile No.
+        </th>
+        <th>
+            Subjects
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubjectName)
+            </td>
+            <td>
+
+                <button class="btn bg-info">@Html.ActionLink("Edit", "EditTeacher", new { id = item.TeacherId }, new { @class = "text-decoration-none text-dark" })</button>
+                <button class="btn bg-danger">
+                    @Html.ActionLink("Delete", "DeleteTeacher", new { id = item.TeacherId },
+          new { onclick = "return confirm('Do you really want to delete this?')", @class = "text-decoration-none text-dark" })
+            </button>
+        </td>
+
+    </tr>
+}
+
+</table>

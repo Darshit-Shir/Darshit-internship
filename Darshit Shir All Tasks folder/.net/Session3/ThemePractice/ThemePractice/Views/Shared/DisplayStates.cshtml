@@ -1,0 +1,11 @@
+﻿@model ThemePractice.DBConnection.States
+
+<option value="">---select State---</option>
+
+@if(ViewBag.StateList != null)
+    {
+    foreach(var item in ViewBag.StateList)
+                {
+                    <option value="@item.value">@item.Text</option>
+                }
+    }
